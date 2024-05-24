@@ -6,22 +6,22 @@
 <h1 id="báo-cáo-tiến-độ-hàng-tuần">Báo Cáo Tiến Độ Hàng Tuần</h1>
 <h2 id="thông-tin-chung">Thông Tin Chung</h2>
 <ul>
-<li><strong>Tên Dự Án</strong>:</li>
-<li><strong>Tuần</strong>:</li>
+<li><strong>Tên Dự Án</strong>: Expense Manager App</li>
+<li><strong>Tuần</strong>: 1</li>
 <li><strong>Ngày</strong>:</li>
 <li><strong>Nhóm Thực Hiện</strong>:
 <ul>
-<li>Thành viên 1:</li>
-<li>Thành viên 2:</li>
-<li>Thành viên 3:</li>
-<li>Thành viên 4:</li>
+<li>Thành viên 1:Nguyễn Thị Ngọc Bích</li>
+<li>Thành viên 2:Bùi Đức Thuận</li>
+<li>Thành viên 3:Nguyễn Xuân Đức</li>
+<li>Thành viên 4:Vi Nguyễn Việt Anh</li>
 </ul>
 </li>
 </ul>
 <h2 id="mục-tiêu-tuần-này">Mục Tiêu Tuần Này</h2>
-<p>(Tóm tắt ngắn gọn mục tiêu chính của tuần này.)</p>
+<p>Đưa ra ý tưởng , tham khảo những dự án có sẵn và phác họa phần mềm</p>
 <h2 id="công-việc-đã-hoàn-thành">Công Việc Đã Hoàn Thành</h2>
-<p>(Tóm tắt các công việc đã hoàn thành trong tuần này.)</p>
+<p>Phác họa phần mềm</p>
 <h3 id="thành-viên-1">Thành viên 1:</h3>
 <ul>
 <li>Công việc 1:</li>

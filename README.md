@@ -1,2 +1,2 @@
-# Smart_wallet
-Smart wallet
+# Expense Manager App
+Expense Manager App

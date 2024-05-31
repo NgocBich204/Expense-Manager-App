@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">SmartWall</string>
+    <string name="app_name">ExpenseManagerWallet</string>
+    <string name="home">Home</string>
+    <string name="detail">Detail</string>
+    <string name="calender">Calender</string>
+    <string name="setting">Setting</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>

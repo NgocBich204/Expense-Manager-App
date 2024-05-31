@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "984608704537",
+    "firebase_url": "https://expensemanagerapp-9b8f8-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "expensemanagerapp-9b8f8",
+    "storage_bucket": "expensemanagerapp-9b8f8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:984608704537:android:14ec0b418cb23c4a360288",
+        "android_client_info": {
+          "package_name": "com.example.smartwall"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqEV8dJR5EYh6QLovIT6ofm64lh3j6UHY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

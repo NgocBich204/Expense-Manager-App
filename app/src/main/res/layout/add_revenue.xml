@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#f5f5f5">
+
+    <!-- Header với nút quay lại và tiêu đề -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="24dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            android:contentDescription="Back"
+            android:padding="8dp"
+            android:onClick="onBackPressed"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:text="Thêm khoản thu"
+            android:textSize="25sp"
+            android:textColor="#000" />
+    </LinearLayout>
+
+    <!-- Form nhập tiêu đề -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tiêu đề"
+        android:textSize="16sp"
+        android:textColor="#000" />
+
+    <EditText
+        android:id="@+id/edtTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Kinh doanh phụ"
+        android:padding="12dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_edittext"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Form nhập tổng tiền -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tổng tiền"
+        android:textSize="16sp"
+        android:textColor="#000"
+        android:layout_marginTop="24dp" />
+
+    <EditText
+        android:id="@+id/edtAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="2 000 000 VND"
+        android:padding="12dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_edittext"
+        android:inputType="number"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Form chọn thời gian -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thời Gian"
+        android:textSize="16sp"
+        android:textColor="#000"
+        android:layout_marginTop="24dp" />
+
+    <EditText
+        android:id="@+id/edtDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="6/2/2024"
+        android:padding="12dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_edittext"
+        android:focusable="false"
+        android:clickable="true"
+        android:onClick="showDatePickerDialog"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Danh mục -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Danh Mục"
+        android:textSize="16sp"
+        android:textColor="#000"
+        android:layout_marginTop="24dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="34dp">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Health"
+            android:backgroundTint="#6c5ce7"
+            android:textColor="#fff"
+            android:padding="10dp"
+            android:layout_marginBottom="24dp"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:text="Grocery"
+            android:backgroundTint="#00cec9"
+            android:textColor="#fff"
+            android:padding="10dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:layout_marginStart="8dp"
+            android:padding="10dp"/>
+    </LinearLayout>
+
+    <!-- Nút thêm khoản thu -->
+    <Button
+        android:id="@+id/btnAddIncome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thêm khoản thu"
+        android:backgroundTint="#0984e3"
+        android:textColor="#fff"
+        android:padding="16dp"/>
+</LinearLayout>

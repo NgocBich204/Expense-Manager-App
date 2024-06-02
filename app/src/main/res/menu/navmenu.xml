@@ -3,15 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/dashboard"
+        android:id="@+id/Dashboard"
         android:icon="@drawable/dashboard"
         android:title="Dashboard" />
     <item
-        android:id="@+id/detail"
+        android:id="@+id/Detail"
         android:icon="@drawable/detail"
         android:title="Detail" />
     <item
-        android:id="@+id/calender"
+        android:id="@+id/Calender"
         android:icon="@drawable/calender"
         android:title="Calender" />
     <item

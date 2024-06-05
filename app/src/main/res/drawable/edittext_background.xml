@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
-    <solid android:color="#FFFFFF"/>
-    <corners android:radius="5dp"/>
-    <stroke android:width="1dp" android:color="#DDDDDD"/>
-    <padding android:left="8dp" android:top="8dp" android:right="8dp" android:bottom="8dp"/>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#FFFFFF" /> <!-- Màu nền trắng -->
+    <corners android:radius="8dp" /> <!-- Bo tròn góc 8dp -->
+    <stroke
+        android:width="2dp"
+        android:color="#B1A8A8" /> <!-- Viền màu xám nhạt -->
+    <padding
+        android:left="10dp"
+        android:top="10dp"
+        android:right="10dp"
+        android:bottom="10dp" /> <!-- Padding bên trong -->
 </shape>

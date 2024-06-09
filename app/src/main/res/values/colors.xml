@@ -6,4 +6,6 @@
     <color name="background_gradient_start">#FF7F50</color>
     <color name="background_gradient_end">#FF4500</color>
     <color name="text_color">#FFFFFF</color>
+    <color name="home_color">#2196F3</color>
+    <color name="colorPrimary">#CC21F3</color>
 </resources>

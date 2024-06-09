@@ -2,4 +2,11 @@
 <resources>
     <item name="BottomNavigationbar" type="id" />
     <item name="main_frame" type="id" />
+    <item name="home" type="id" />
+    <item name="detail" type="id" />
+    <item name="calender" type="id" />
+    <item name="edtEmailLogin" type="id" />
+    <item name="btnLogin" type="id" />
+    <item name="txtForgetPass" type="id" />
+    <item name="progressBar" type="id" />
 </resources>

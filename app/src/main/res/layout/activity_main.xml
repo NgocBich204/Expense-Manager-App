@@ -5,10 +5,11 @@
     android:id="@+id/test"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="#4A3E3E"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <!-- Đây là phần chứa wave_shape -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -58,7 +59,7 @@
                 android:hint="Vui lòng nhập email của bạn"
                 android:inputType="textEmailAddress"
                 android:padding="10dp"
-                />
+                android:textColorHighlight="#2C2727" />
 
             <TextView
                 android:id="@+id/textView5"

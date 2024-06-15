@@ -120,6 +120,7 @@
             android:layout_marginTop="4dp"
             android:layout_marginEnd="16dp" />
 
+        <!-- Chỉnh sửa thông tin cá nhân -->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_add"
             android:layout_width="wrap_content"
@@ -130,7 +131,6 @@
             app:backgroundTint="@color/home_color"
             tools:ignore="MissingClass" />
 
-        <!-- Chỉnh sửa thông tin cá nhân -->
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"

@@ -76,7 +76,7 @@ public class Login extends AppCompatActivity {
                         progressBar.setVisibility(View.GONE); // Ẩn thanh tiến trình
                         if (task.isSuccessful()) {
                             Toast.makeText(getApplicationContext(), "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), Homepage.class));
+                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         } else {
                             Toast.makeText(getApplicationContext(), "Đăng nhập không thành công. Vui lòng thử lại!", Toast.LENGTH_SHORT).show();
                         }

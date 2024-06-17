@@ -132,7 +132,7 @@
                     android:id="@+id/buttonSubmit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Thêm Khoản Thu"/>
+                    android:text="Thêm Khoản chi"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

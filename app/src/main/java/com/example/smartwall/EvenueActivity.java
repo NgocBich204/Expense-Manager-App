@@ -1,11 +1,12 @@
 package com.example.smartwall;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -30,12 +31,34 @@ public class EvenueActivity extends AppCompatActivity implements  AdapterView.On
     private String selectedDate;
 
     private DatabaseReference databaseExpenses;
+    private ImageView imageViewBackToHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.add_evenue);  // Chỉ gọi một lần ở đây
+
+        // Khởi tạo kiểm tra luôn nên đúng
+        databaseExpenses = FirebaseDatabase.getInstance().getReference("revenue"); // Đảm bảo rằng đường dẫn là đúng
+
+        // Tương tự cho các thành phần UI khác
+        editTextTitle = findViewById(R.id.editTextTitle);
+        editTextTotal = findViewById(R.id.editTextTotal);
+        spinnerCategories = findViewById(R.id.spinner_categories);
+        calendarView = findViewById(R.id.calendarView2);
+        buttonSubmit = findViewById(R.id.buttonSubmit);
+
+        buttonSubmit = findViewById(R.id.buttonSubmit);
+        buttonSubmit.setOnClickListener(view -> {
+            Intent intent = new Intent(EvenueActivity.this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            finish();
+        });
+
+        // Phần còn lại của code không được sửa đổi
         EdgeToEdge.enable(this);
-        setContentView(R.layout.add_revenue);
+        setContentView(R.layout.add_evenue);
         databaseExpenses = FirebaseDatabase.getInstance().getReference("evenue");
 
         editTextTitle = findViewById(R.id.editTextTitle);

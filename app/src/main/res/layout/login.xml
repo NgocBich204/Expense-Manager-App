@@ -82,7 +82,8 @@
                     android:hint="Vui lòng nhập mật khẩu"
                     android:inputType="textPassword"
                     android:padding="10dp"
-                    android:textColor="#B1A8A8" />
+                    android:textColor="#B1A8A8"
+                    android:textColorHint="#3C3535" />
             </com.google.android.material.textfield.TextInputLayout>
 
 

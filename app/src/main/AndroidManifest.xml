@@ -16,9 +16,6 @@
             android:name=".EvenueActivity"
             android:exported="false" />
         <activity
-            android:name=".EvenueAcivtity"
-            android:exported="false" />
-        <activity
             android:name=".ResetPWActivity"
             android:exported="false" />
         <activity

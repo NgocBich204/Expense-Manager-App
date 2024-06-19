@@ -1,41 +1,64 @@
 package com.example.smartwall.model;
 
 public class Expenses {
+    private String category;
+    private String date;
+    private String id;
+    private String title;
+    private String total;
 
-        private String id;
-        private String title;
-        private String total;
-        private String category;
-        private String date;
+    // Constructor mặc định không tham số
+    public Expenses() {
+        // Cần thiết cho Firebase
+    }
 
+    // Constructor đầy đủ tham số
+    public Expenses(String category, String date, String id, String title, String total) {
+        this.category = category;
+        this.date = date;
+        this.id = id;
+        this.title = title;
+        this.total = total;
+    }
 
+    // Getter và setter
+    public String getCategory() {
+        return category;
+    }
 
-        public Expenses(String id, String title, String total, String category, String date) {
-            this.id = id;
-            this.title = title;
-            this.total = total;
-            this.category = category;
-            this.date = date;
-        }
+    public void setCategory(String category) {
+        this.category = category;
+    }
 
-        public String getId() {
-            return id;
-        }
+    public String getDate() {
+        return date;
+    }
 
-        public String getTitle() {
-            return title;
-        }
+    public void setDate(String date) {
+        this.date = date;
+    }
 
-        public String getTotal() {
-            return total;
-        }
+    public String getId() {
+        return id;
+    }
 
-        public String getCategory() {
-            return category;
-        }
+    public void setId(String id) {
+        this.id = id;
+    }
 
-        public String getDate() {
-            return date;
-        }
+    public String getTitle() {
+        return title;
+    }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getTotal() {
+        return total;
+    }
+
+    public void setTotal(String total) {
+        this.total = total;
+    }
 }

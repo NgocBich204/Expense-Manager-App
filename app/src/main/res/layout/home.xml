@@ -45,11 +45,14 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/totalIncomeTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="10 000 000 VND"
+                        android:text="0 VND"
                         android:textColor="#000000"
                         android:textSize="16sp" />
+
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -63,7 +66,7 @@
                     <ImageView
                         android:layout_width="38dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/wallet" />
+                        android:src="@drawable/ic_money" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -72,11 +75,14 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/totalExpenseTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="5 000 000 VND"
+                        android:text="0 VND"
                         android:textColor="#000000"
                         android:textSize="16sp" />
+
+
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -121,7 +127,7 @@
         <ListView
             android:id="@+id/listViewIncome"
             android:layout_width="match_parent"
-            android:layout_height="167dp"
+            android:layout_height="177dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="16dp" />
@@ -169,8 +175,6 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="16dp" />
-
-
 
     </LinearLayout>
 

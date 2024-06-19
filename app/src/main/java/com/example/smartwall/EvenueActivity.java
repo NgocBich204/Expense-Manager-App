@@ -44,7 +44,7 @@ public class EvenueActivity extends AppCompatActivity implements  AdapterView.On
         calendarView = findViewById(R.id.calendarView2);
         buttonSubmit = findViewById(R.id.buttonSubmit);
 
-        String[] items = new String[]{"Lương", "tip", "Chưng khoán", "sổ số"};
+        String[] items = new String[]{"Lương", "Tips", "Chứng khoán", "sổ số"};
         SpinnerAdapter adapter = new SpinnerAdapter(this, items);
         spinnerCategories.setAdapter(adapter);
         spinnerCategories.setOnItemSelectedListener(this);

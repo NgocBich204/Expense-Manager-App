@@ -1,4 +1,5 @@
 package com.example.smartwall;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -21,7 +21,7 @@ import com.example.smartwall.model.Expenses;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class EvenueActivity extends AppCompatActivity implements  AdapterView.OnItemSelectedListener{
+public class EvenueActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private EditText editTextTitle, editTextTotal;
     private Spinner spinnerCategories;
@@ -36,43 +36,26 @@ public class EvenueActivity extends AppCompatActivity implements  AdapterView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_evenue);  // Chỉ gọi một lần ở đây
-
-        // Khởi tạo kiểm tra luôn nên đúng
-        databaseExpenses = FirebaseDatabase.getInstance().getReference("revenue"); // Đảm bảo rằng đường dẫn là đúng
-
-        // Tương tự cho các thành phần UI khác
-        editTextTitle = findViewById(R.id.editTextTitle);
-        editTextTotal = findViewById(R.id.editTextTotal);
-        spinnerCategories = findViewById(R.id.spinner_categories);
-        calendarView = findViewById(R.id.calendarView2);
-        buttonSubmit = findViewById(R.id.buttonSubmit);
-
-        buttonSubmit = findViewById(R.id.buttonSubmit);
-        buttonSubmit.setOnClickListener(view -> {
-            Intent intent = new Intent(EvenueActivity.this, MainActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-            finish();
-        });
-
-        // Phần còn lại của code không được sửa đổi
-        EdgeToEdge.enable(this);
         setContentView(R.layout.add_evenue);
+
+        // Initialize Firebase reference
         databaseExpenses = FirebaseDatabase.getInstance().getReference("evenue");
 
+        // Initialize UI components
         editTextTitle = findViewById(R.id.editTextTitle);
         editTextTotal = findViewById(R.id.editTextTotal);
         spinnerCategories = findViewById(R.id.spinner_categories);
         calendarView = findViewById(R.id.calendarView2);
         buttonSubmit = findViewById(R.id.buttonSubmit);
+        imageViewBackToHome = findViewById(R.id.imageViewBackToHome);
 
-        String[] items = new String[]{"Lương", "tip", "Chưng khoán", "sổ số"};
+        // Set up spinner adapter
+        String[] items = new String[]{"Lương", "Tip", "Chứng khoán", "Sổ số"};
         SpinnerAdapter adapter = new SpinnerAdapter(this, items);
         spinnerCategories.setAdapter(adapter);
         spinnerCategories.setOnItemSelectedListener(this);
 
-
+        // Set calendar view listener
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
@@ -80,6 +63,7 @@ public class EvenueActivity extends AppCompatActivity implements  AdapterView.On
             }
         });
 
+        // Set button click listeners
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,8 +71,15 @@ public class EvenueActivity extends AppCompatActivity implements  AdapterView.On
             }
         });
 
-
-
+        imageViewBackToHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EvenueActivity.this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.add_revenue), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -126,11 +117,11 @@ public class EvenueActivity extends AppCompatActivity implements  AdapterView.On
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+        // No action needed
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-
+        // No action needed
     }
 }

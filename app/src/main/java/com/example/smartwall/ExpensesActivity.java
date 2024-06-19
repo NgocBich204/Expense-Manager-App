@@ -1,6 +1,6 @@
 package com.example.smartwall;
-import android.content.Intent;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -24,34 +24,15 @@ public class ExpensesActivity extends AppCompatActivity implements AdapterView.O
     private Spinner spinnerCategories;
     private CalendarView calendarView;
     private Button buttonSubmit;
+    private ImageView imageViewBack;
 
     private String selectedDate;
 
     private DatabaseReference databaseExpenses;
-    private ImageView imageViewBack;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_expenses);  // Chỉ gọi một lần ở đây
-
-        // Khởi tạo kiểm tra luôn nên đúng
-        databaseExpenses = FirebaseDatabase.getInstance().getReference("revenue"); // Đảm bảo rằng đường dẫn là đúng
-
-        // Tương tự cho các thành phần UI khác
-        editTextTitle = findViewById(R.id.editTextTitle);
-        editTextTotal = findViewById(R.id.editTextTotal);
-        spinnerCategories = findViewById(R.id.spinner_categories);
-        calendarView = findViewById(R.id.calendarView2);
-        buttonSubmit = findViewById(R.id.buttonSubmit);
-
-        imageViewBack = findViewById(R.id.imageViewBack);
-        imageViewBack.setOnClickListener(view -> {
-            Intent intent = new Intent(ExpensesActivity.this, MainActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-            finish();
-        });
-        // Phần còn lại của code không được sửa đổi
         setContentView(R.layout.add_expenses);
 
         // Initialize Firebase Database
@@ -63,6 +44,7 @@ public class ExpensesActivity extends AppCompatActivity implements AdapterView.O
         spinnerCategories = findViewById(R.id.spinner_categories);
         calendarView = findViewById(R.id.calendarView2);
         buttonSubmit = findViewById(R.id.buttonSubmit);
+        imageViewBack = findViewById(R.id.imageViewBack);
 
         // Setup Spinner with Custom Adapter
         String[] items = new String[]{"Mua sắm", "Đồ ăn", "Thuê nhà", "Hóa đơn"};
@@ -84,6 +66,14 @@ public class ExpensesActivity extends AppCompatActivity implements AdapterView.O
             public void onClick(View v) {
                 addExpense();
             }
+        });
+
+        // ImageView Back Click Listener
+        imageViewBack.setOnClickListener(view -> {
+            Intent intent = new Intent(ExpensesActivity.this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            finish();
         });
     }
 

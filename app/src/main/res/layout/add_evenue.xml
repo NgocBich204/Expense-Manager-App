@@ -28,7 +28,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="8"
-            android:text="Thêm khoản chi"
+            android:text="Thêm thu nhập"
             android:textSize="24sp"
             android:layout_gravity="center"
             android:gravity="center"/>

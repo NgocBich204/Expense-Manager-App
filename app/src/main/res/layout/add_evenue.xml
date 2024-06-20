@@ -28,7 +28,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="8"
-            android:text="Thêm khoản chi"
+            android:text="Thêm thu nhập"
             android:textSize="24sp"
             android:layout_gravity="center"
             android:gravity="center"/>
@@ -140,7 +140,7 @@
                     android:backgroundTint="#0F39D1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Thêm Khoản chi"/>
+                    android:text="Thêm thu nhập"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

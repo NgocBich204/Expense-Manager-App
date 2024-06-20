@@ -12,14 +12,15 @@
         android:theme="@style/Theme.SmartWall"
         tools:targetApi="31">
         <activity
-            android:name=".EvenueActivity"
+            android:name=".RevenueActivity"
             android:exported="false" />
         <activity
             android:name=".ResetPWActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" /> <!-- Đặt exported="true" để có thể khởi chạy từ ngoài -->
+            android:exported="false" />
+
         <activity
             android:name=".ExpensesActivity"
             android:exported="false" />

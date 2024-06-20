@@ -30,13 +30,11 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        fbAuth = FirebaseAuth.getInstance(); // Xác thực người dùng Firebase
         setContentView(R.layout.login);
-        login();
-    }
 
-    private void login() {
-        // Ánh xạ id
+        fbAuth = FirebaseAuth.getInstance(); // Khởi tạo Firebase Auth
+
+        // Ánh xạ các thành phần giao diện
         edtEmail = findViewById(R.id.edtEmailLogin);
         edtPass = findViewById(R.id.edtPasswordLogin);
         btnLogin = findViewById(R.id.btnLogin);
@@ -44,13 +42,15 @@ public class Login extends AppCompatActivity {
         txtSignUp = findViewById(R.id.txtSignUp);
         progressBar = findViewById(R.id.progressBar);
 
+        // Xử lý sự kiện khi nhấn nút Đăng nhập
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                hideKeyboard(); // Ẩn bàn phím khi nhấn nút đăng nhập
+                hideKeyboard(); // Ẩn bàn phím
                 String email = edtEmail.getText().toString().trim();
                 String pass = edtPass.getText().toString().trim();
 
+                // Validate email và password
                 if (TextUtils.isEmpty(email)) {
                     edtEmail.setError("Email không được để trống!");
                     return;
@@ -68,16 +68,19 @@ public class Login extends AppCompatActivity {
                     return;
                 }
 
-                progressBar.setVisibility(View.VISIBLE); // Hiển thị thanh tiến trình
+                progressBar.setVisibility(View.VISIBLE); // Hiển thị ProgressBar
 
+                // Đăng nhập bằng Firebase Auth
                 fbAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        progressBar.setVisibility(View.GONE); // Ẩn thanh tiến trình
+                        progressBar.setVisibility(View.GONE); // Ẩn ProgressBar
                         if (task.isSuccessful()) {
-                            Toast.makeText(getApplicationContext(), "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
+                            // Đăng nhập thành công, chuyển sang MainActivity
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            finish(); // Đóng LoginActivity
                         } else {
+                            // Đăng nhập không thành công, thông báo lỗi
                             Toast.makeText(getApplicationContext(), "Đăng nhập không thành công. Vui lòng thử lại!", Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -85,6 +88,7 @@ public class Login extends AppCompatActivity {
             }
         });
 
+        // Xử lý sự kiện khi nhấn vào nút Đăng ký
         txtSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,6 +96,7 @@ public class Login extends AppCompatActivity {
             }
         });
 
+        // Xử lý sự kiện khi nhấn vào Quên mật khẩu
         txtForget.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -100,6 +105,7 @@ public class Login extends AppCompatActivity {
         });
     }
 
+    // Phương thức ẩn bàn phím
     private void hideKeyboard() {
         View view = this.getCurrentFocus();
         if (view != null) {

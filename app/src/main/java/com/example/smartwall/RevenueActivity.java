@@ -11,28 +11,25 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import com.example.smartwall.model.Expenses;
+import com.example.smartwall.model.Income;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class EvenueActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class RevenueActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private EditText editTextTitle, editTextTotal;
     private Spinner spinnerCategories;
     private CalendarView calendarView;
     private Button buttonSubmit;
+    private ImageView imageViewBack;
 
     private String selectedDate;
-
-    private DatabaseReference databaseExpenses;
-    private ImageView imageViewBackToHome;
+    private DatabaseReference databaseIncome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +37,7 @@ public class EvenueActivity extends AppCompatActivity implements AdapterView.OnI
         setContentView(R.layout.add_evenue);
 
         // Initialize Firebase Database
-        databaseExpenses = FirebaseDatabase.getInstance().getReference("evenue");
+        databaseIncome = FirebaseDatabase.getInstance().getReference("income");
 
         // Find Views
         editTextTitle = findViewById(R.id.editTextTitle);
@@ -48,10 +45,10 @@ public class EvenueActivity extends AppCompatActivity implements AdapterView.OnI
         spinnerCategories = findViewById(R.id.spinner_categories);
         calendarView = findViewById(R.id.calendarView2);
         buttonSubmit = findViewById(R.id.buttonSubmit);
-        imageViewBackToHome = findViewById(R.id.imageViewBackToHome);
+        imageViewBack = findViewById(R.id.imageViewBackToHome);
 
         // Setup Spinner with Custom Adapter
-        String[] items = new String[]{"Lương", "Tip", "Chứng khoán", "Sổ số"};
+        String[] items = new String[]{"Lương", "Thưởng", "Tiền lãi", "Khác"};
         SpinnerAdapter adapter = new SpinnerAdapter(this, items);
         spinnerCategories.setAdapter(adapter);
         spinnerCategories.setOnItemSelectedListener(this);
@@ -64,33 +61,24 @@ public class EvenueActivity extends AppCompatActivity implements AdapterView.OnI
             }
         });
 
-        // Button Submit Click Listener
+        // Button Click Listener
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addEvenue();
+                addIncome();
             }
         });
 
         // Back button listener
-        imageViewBackToHome.setOnClickListener(view -> {
-            Intent intent = new Intent(EvenueActivity.this, MainActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-            finish();
-        });
-
-        // Edge to Edge handling
-        EdgeToEdge.enable(this);
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.add_revenue), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+        imageViewBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish(); // Đóng RevenueActivity và quay lại MainActivity
+            }
         });
     }
 
-    private void addEvenue() {
+    private void addIncome() {
         String title = editTextTitle.getText().toString().trim();
         String total = editTextTotal.getText().toString().trim();
         String category = spinnerCategories.getSelectedItem().toString();
@@ -100,19 +88,28 @@ public class EvenueActivity extends AppCompatActivity implements AdapterView.OnI
             return;
         }
 
-        String id = databaseExpenses.push().getKey();
-        Expenses expense = new Expenses(id, title, total, category, selectedDate);
+        String id = databaseIncome.push().getKey();
+        Income income = new Income(id, title, total, category, selectedDate);
 
-        databaseExpenses.child(id).setValue(expense).addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                Toast.makeText(this, "Khoản thu đã được thêm", Toast.LENGTH_SHORT).show();
-                // Reset fields
-                editTextTitle.setText("");
-                editTextTotal.setText("");
-                spinnerCategories.setSelection(0);
-                calendarView.setDate(System.currentTimeMillis(), false, true);
-            } else {
-                Toast.makeText(this, "Thêm thu chi thất bại", Toast.LENGTH_SHORT).show();
+        databaseIncome.child(id).setValue(income).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(RevenueActivity.this, "Khoản thu đã được thêm", Toast.LENGTH_SHORT).show();
+                    // Reset fields
+                    editTextTitle.setText("");
+                    editTextTotal.setText("");
+                    spinnerCategories.setSelection(0);
+                    calendarView.setDate(System.currentTimeMillis(), false, true);
+
+                    // Trả về kết quả thành công và đóng Activity
+                    Intent intent = new Intent();
+                    intent.putExtra("addedIncome", true);
+                    setResult(RESULT_OK, intent);
+                    finish();
+                } else {
+                    Toast.makeText(RevenueActivity.this, "Thêm khoản thu thất bại", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

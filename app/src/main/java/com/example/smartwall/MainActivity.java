@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
 
-        // Khởi tạo các view
+        // Initialize views
         btnAddIncome = findViewById(R.id.btnAddIncome);
         btnAddExpense = findViewById(R.id.btnAddExpense);
         listViewIncome = findViewById(R.id.listViewIncome);
@@ -53,20 +53,20 @@ public class MainActivity extends AppCompatActivity {
         totalIncomeTextView = findViewById(R.id.totalIncomeTextView);
         totalExpenseTextView = findViewById(R.id.totalExpenseTextView);
 
-        // Khởi tạo danh sách và adapter cho thu nhập và chi phí
+        // Initialize lists and adapters for income and expense
         incomeList = new ArrayList<>();
         expenseList = new ArrayList<>();
         incomeAdapter = new IncomeAdapter(this, incomeList);
         expenseAdapter = new ExpenseAdapter(this, expenseList);
 
-        // Gán adapter cho ListView
+        // Set adapters for ListViews
         listViewIncome.setAdapter(incomeAdapter);
         listViewExpense.setAdapter(expenseAdapter);
 
-        // Tham chiếu đến Firebase Realtime Database
+        // Reference to Firebase Realtime Database
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
-        // Lấy dữ liệu thu nhập từ Firebase
+        // Fetch income data from Firebase
         databaseReference.child("income").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                             incomeList.add(income);
                             totalIncome += incomeTotal;
                         } catch (NumberFormatException e) {
-                            Log.e(TAG, "Lỗi khi chuyển đổi tổng thu nhập: " + income.getTotal(), e);
+                            Log.e(TAG, "Error parsing income total: " + income.getTotal(), e);
                         }
                     }
                 }
@@ -90,11 +90,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(MainActivity.this, "Lỗi khi lấy dữ liệu thu nhập!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Error fetching income data!", Toast.LENGTH_SHORT).show();
             }
         });
 
-        // Lấy dữ liệu chi phí từ Firebase
+        // Fetch expense data from Firebase
         databaseReference.child("expenses").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                             expenseList.add(expense);
                             totalExpense += expenseTotal;
                         } catch (NumberFormatException e) {
-                            Log.e(TAG, "Lỗi khi chuyển đổi tổng khoản chi: " + expense.getTotal(), e);
+                            Log.e(TAG, "Error parsing expense total: " + expense.getTotal(), e);
                         }
                     }
                 }
@@ -118,13 +118,12 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(MainActivity.this, "Lỗi khi lấy dữ liệu chi phí!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Error fetching expense data!", Toast.LENGTH_SHORT).show();
             }
         });
 
-        // Xử lý sự kiện khi nhấn nút "Thêm Thu nhập"
+        // Handle "Add Income" button click
         btnAddIncome.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, RevenueActivity.class);
@@ -132,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Xử lý sự kiện khi nhấn nút "Thêm Chi phí"
+        // Handle "Add Expense" button click
         btnAddExpense.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -140,27 +139,30 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        // Đặt sự kiện onClick cho ListView thu nhập
+
+        // Set onItemClickListener for income ListView
         listViewIncome.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getApplicationContext(), TransactionDetailsActivity.class);
-                // truyen du lieu sang TransactionDetailsActivity thông qua putExtra.
-                intent.putExtra("id" , 1);
-                startActivity(intent);
+                Expenses selectedIncome = incomeList.get(position);
+                navigateToTransactionDetails(selectedIncome, "income");
             }
         });
 
-        // Đặt sự kiện onClick cho ListView chi tiêu
+        // Set onItemClickListener for expense ListView
         listViewExpense.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Xử lý khi item trên listViewExpense được chọn
-                // Ví dụ:
-                Toast.makeText(MainActivity.this, "Selected: ", Toast.LENGTH_SHORT).show();
+                Expenses selectedExpense = expenseList.get(position);
+                navigateToTransactionDetails(selectedExpense, "expenses");
             }
         });
+    }
 
-
+    private void navigateToTransactionDetails(Expenses transaction, String transactionType) {
+        Intent intent = new Intent(MainActivity.this, TransactionDetailsActivity.class);
+        intent.putExtra("transactionType", transactionType);
+        intent.putExtra("transactionId", transaction.getId());
+        startActivity(intent);
     }
 }

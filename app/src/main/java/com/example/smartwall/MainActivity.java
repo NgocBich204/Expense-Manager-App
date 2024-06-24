@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -123,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Xử lý sự kiện khi nhấn nút "Thêm Thu nhập"
         btnAddIncome.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, RevenueActivity.class);
@@ -138,5 +140,27 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        // Đặt sự kiện onClick cho ListView thu nhập
+        listViewIncome.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getApplicationContext(), TransactionDetailsActivity.class);
+                // truyen du lieu sang TransactionDetailsActivity thông qua putExtra.
+                intent.putExtra("id" , 1);
+                startActivity(intent);
+            }
+        });
+
+        // Đặt sự kiện onClick cho ListView chi tiêu
+        listViewExpense.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Xử lý khi item trên listViewExpense được chọn
+                // Ví dụ:
+                Toast.makeText(MainActivity.this, "Selected: ", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
     }
 }

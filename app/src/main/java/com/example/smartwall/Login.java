@@ -46,6 +46,11 @@ public class Login extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                finish(); // Đóng LoginActivity
+
+
+
                 hideKeyboard(); // Ẩn bàn phím
                 String email = edtEmail.getText().toString().trim();
                 String pass = edtPass.getText().toString().trim();

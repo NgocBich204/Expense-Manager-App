@@ -34,10 +34,6 @@
             android:text="Sửa"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
-
-
-        <!-- Sửa Button -->
-
     </LinearLayout>
     <View
         android:layout_width="match_parent"
@@ -76,8 +72,8 @@
                 android:textColor="@android:color/black" />
         </LinearLayout>
 
-        <!-- EditText for Total -->
-        <EditText
+        <!-- TextView for Total -->
+        <TextView
             android:id="@+id/editText_total"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -110,7 +106,8 @@
                 android:layout_weight="1"
                 android:layout_marginStart="10dp"
                 android:textSize="20sp"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/black"
+                android:text="Chọn ngày" />
         </LinearLayout>
 
         <!-- LinearLayout for Title -->

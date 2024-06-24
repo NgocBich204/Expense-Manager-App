@@ -57,7 +57,7 @@
         android:orientation="vertical"
         android:padding="10dp">
 
-        <!-- ImageView and TextView for Category -->
+        <!-- ImageView and EditText for Category -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -70,8 +70,8 @@
                 android:layout_height="50dp"
                 android:src="@drawable/baseline_shopping_bag_24" />
 
-            <TextView
-                android:id="@+id/textView_category"
+            <EditText
+                android:id="@+id/editText_category"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -87,12 +87,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:gravity="center_horizontal"
-            android:textSize="36sp"
-            android:textColor="@android:color/holo_red_dark"
-            android:enabled="false"
-            android:focusable="false"
             android:hint="Total Amount"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="36sp"
             tools:text="1000" />
 
         <!-- Divider -->
@@ -115,8 +112,8 @@
                 android:layout_height="30dp"
                 android:src="@drawable/baseline_calendar_month_24" />
 
-            <TextView
-                android:id="@+id/textView_date"
+            <EditText
+                android:id="@+id/editText_date"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -126,29 +123,15 @@
                 tools:text="Transaction Date" />
         </LinearLayout>
 
-        <!-- LinearLayout for Title -->
-        <LinearLayout
+        <!-- TextView for Title -->
+        <TextView
+            android:id="@+id/textView_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingVertical="10dp">
-
-            <ImageView
-                android:id="@+id/imageView_title"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/baseline_attach_money_24" />
-
-            <TextView
-                android:id="@+id/textView_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginStart="10dp"
-                android:textSize="20sp"
-                android:textColor="@android:color/black"
-                tools:text="Transaction Title" />
-        </LinearLayout>
+            android:layout_marginTop="10dp"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            tools:text="Transaction Title" />
 
         <!-- Button for Save Transaction -->
         <androidx.cardview.widget.CardView

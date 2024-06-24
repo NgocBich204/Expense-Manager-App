@@ -46,6 +46,7 @@ public class Login extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 hideKeyboard(); // Ẩn bàn phím
                 String email = edtEmail.getText().toString().trim();
                 String pass = edtPass.getText().toString().trim();
@@ -83,6 +84,7 @@ public class Login extends AppCompatActivity {
                             // Đăng nhập không thành công, thông báo lỗi
                             Toast.makeText(getApplicationContext(), "Đăng nhập không thành công. Vui lòng thử lại!", Toast.LENGTH_SHORT).show();
                         }
+
                     }
                 });
             }

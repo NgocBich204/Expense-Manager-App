@@ -55,8 +55,9 @@ public class EditTransactionActivity extends AppCompatActivity {
             textViewTitle.setText(bundle.getString("title"));
         }
 
-        // Disable editing for textViewTitle
-        textViewTitle.setEnabled(false);
+        // Set editTextCategory to non-editable
+        editTextCategory.setClickable(false);
+        editTextCategory.setFocusable(false);
 
         // Set event listener for Save button
         buttonSave.setOnClickListener(new View.OnClickListener() {

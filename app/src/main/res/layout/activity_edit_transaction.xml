@@ -78,12 +78,15 @@
                 android:layout_marginStart="20dp"
                 android:textSize="34sp"
                 android:textColor="@android:color/black"
+                android:clickable="false"
+                android:focusable="false"
                 tools:text="Category Name" />
         </LinearLayout>
 
         <!-- EditText for Total -->
         <EditText
             android:id="@+id/editText_total"
+            android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"

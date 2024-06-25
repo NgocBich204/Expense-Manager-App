@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/saving">
 
-    <!-- LinearLayout chứa TextView và ImageView -->
+    <!-- LinearLayout contains TextView and ImageView -->
     <LinearLayout
         android:id="@+id/linearHeader"
         android:layout_width="wrap_content"
@@ -15,7 +14,7 @@
         android:paddingTop="16dp"
         android:paddingBottom="8dp">
 
-        <!-- ImageView điều hướng -->
+        <!-- ImageView for navigation -->
         <ImageView
             android:id="@+id/imageViewBackToHome"
             android:layout_width="wrap_content"
@@ -25,7 +24,7 @@
             android:contentDescription="Back to Home"
             android:layout_marginEnd="8dp"/>
 
-        <!-- TextView Mục tiêu Tiết -->
+        <!-- TextView for title -->
         <TextView
             android:id="@+id/textViewTitle"
             android:layout_width="wrap_content"
@@ -36,24 +35,25 @@
 
     </LinearLayout>
 
-    <!-- ListView -->
+    <!-- ListView for displaying goals -->
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_below="@id/linearHeader"
+        android:layout_above="@id/buttonAdd"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"/>
 
-    <!-- Button Thêm vào -->
+    <!-- Button to add new goal -->
     <Button
         android:id="@+id/buttonAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Thêm vào"
-        android:layout_below="@id/listView"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
         android:paddingStart="24dp"
         android:paddingEnd="24dp"
         android:paddingTop="12dp"

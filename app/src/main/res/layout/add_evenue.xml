@@ -21,17 +21,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/baseline_arrow_back_24"/>
+            app:srcCompat="@drawable/baseline_arrow_back_24" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="8"
-            android:text="Thêm thu nhập"
-            android:textSize="24sp"
             android:layout_gravity="center"
-            android:gravity="center"/>
+            android:layout_weight="8"
+            android:gravity="center"
+            android:text="Thêm thu nhập"
+            android:textSize="24sp" />
     </LinearLayout>
 
     <!-- Calendar Section -->
@@ -57,75 +57,75 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:layout_marginBottom="30dp"/>
+                    android:layout_marginBottom="30dp" />
             </LinearLayout>
 
             <!-- Title Section -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
                 android:orientation="vertical"
-                android:padding="16dp"
-                android:layout_marginBottom="20dp">
+                android:padding="16dp">
 
                 <TextView
                     android:id="@+id/textViewTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Ghi chú"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp" />
 
                 <EditText
                     android:id="@+id/editTextTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text"
+                    android:layout_marginTop="8dp"
                     android:background="@drawable/edittext_background"
-                    android:layout_marginTop="8dp"/>
+                    android:inputType="text" />
             </LinearLayout>
 
             <!-- Total Amount Section -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
                 android:orientation="vertical"
-                android:padding="16dp"
-                android:layout_marginBottom="20dp">
+                android:padding="16dp">
 
                 <TextView
                     android:id="@+id/textViewTotal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Tổng Tiền"/>
+                    android:text="Tổng Tiền" />
 
                 <EditText
                     android:id="@+id/editTextTotal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
+                    android:layout_marginTop="8dp"
                     android:background="@drawable/edittext_background"
-                    android:layout_marginTop="8dp"/>
+                    android:inputType="number" />
             </LinearLayout>
 
             <!-- Category Section -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
                 android:orientation="vertical"
-                android:padding="16dp"
-                android:layout_marginBottom="20dp">
+                android:padding="16dp">
 
                 <TextView
                     android:id="@+id/textViewCategory"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Danh Mục"/>
+                    android:text="Danh Mục" />
 
                 <Spinner
                     android:id="@+id/spinner_categories"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"/>
+                    android:layout_marginTop="8dp" />
             </LinearLayout>
 
             <!-- Button Section -->
@@ -137,10 +137,10 @@
 
                 <Button
                     android:id="@+id/buttonSubmit"
-                    android:backgroundTint="#0F39D1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Thêm thu nhập"/>
+                    android:backgroundTint="#0F39D1"
+                    android:text="Thêm thu nhập" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

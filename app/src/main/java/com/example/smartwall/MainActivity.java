@@ -3,7 +3,10 @@ package com.example.smartwall;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -13,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.smartwall.model.Expenses;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -44,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
 
-        // Khởi tạo các view
+        // Initialize views
         btnAddIncome = findViewById(R.id.btnAddIncome);
         btnAddExpense = findViewById(R.id.btnAddExpense);
         listViewIncome = findViewById(R.id.listViewIncome);
@@ -52,20 +56,20 @@ public class MainActivity extends AppCompatActivity {
         totalIncomeTextView = findViewById(R.id.totalIncomeTextView);
         totalExpenseTextView = findViewById(R.id.totalExpenseTextView);
 
-        // Khởi tạo danh sách và adapter cho thu nhập và chi phí
+        // Initialize lists and adapters for income and expense
         incomeList = new ArrayList<>();
         expenseList = new ArrayList<>();
         incomeAdapter = new IncomeAdapter(this, incomeList);
         expenseAdapter = new ExpenseAdapter(this, expenseList);
 
-        // Gán adapter cho ListView
+        // Set adapters for ListViews
         listViewIncome.setAdapter(incomeAdapter);
         listViewExpense.setAdapter(expenseAdapter);
 
-        // Tham chiếu đến Firebase Realtime Database
+        // Reference to Firebase Realtime Database
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
-        // Lấy dữ liệu thu nhập từ Firebase
+        // Fetch income data from Firebase
         databaseReference.child("income").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -79,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                             incomeList.add(income);
                             totalIncome += incomeTotal;
                         } catch (NumberFormatException e) {
-                            Log.e(TAG, "Lỗi khi chuyển đổi tổng thu nhập: " + income.getTotal(), e);
+                            Log.e(TAG, "Error parsing income total: " + income.getTotal(), e);
                         }
                     }
                 }
@@ -89,11 +93,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(MainActivity.this, "Lỗi khi lấy dữ liệu thu nhập!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Error fetching income data!", Toast.LENGTH_SHORT).show();
             }
         });
 
-        // Lấy dữ liệu chi phí từ Firebase
+        // Fetch expense data from Firebase
         databaseReference.child("expenses").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -107,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
                             expenseList.add(expense);
                             totalExpense += expenseTotal;
                         } catch (NumberFormatException e) {
-                            Log.e(TAG, "Lỗi khi chuyển đổi tổng khoản chi: " + expense.getTotal(), e);
+                            Log.e(TAG, "Error parsing expense total: " + expense.getTotal(), e);
                         }
                     }
                 }
@@ -117,11 +121,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(MainActivity.this, "Lỗi khi lấy dữ liệu chi phí!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Error fetching expense data!", Toast.LENGTH_SHORT).show();
             }
         });
 
-        // Xử lý sự kiện khi nhấn nút "Thêm Thu nhập"
+        // Handle "Add Income" button click
         btnAddIncome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -130,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Xử lý sự kiện khi nhấn nút "Thêm Chi phí"
+        // Handle "Add Expense" button click
         btnAddExpense.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -138,5 +142,98 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        // Set onItemClickListener for income ListView
+        listViewIncome.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Expenses selectedIncome = incomeList.get(position);
+                navigateToTransactionDetails(selectedIncome, "income");
+            }
+        });
+
+        // Set onItemClickListener for expense ListView
+        listViewExpense.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Expenses selectedExpense = expenseList.get(position);
+                navigateToTransactionDetails(selectedExpense, "expenses");
+            }
+        });
+
+        // Initialize and set listener for BottomNavigationView
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                if (id == R.id.home) {
+                    Log.d(TAG, "Selected menu item: Home");
+                    // Already in MainActivity, no need to navigate
+                    return true;
+                } else if (id == R.id.wallet) {
+                    Log.d(TAG, "Selected menu item: Wallet");
+                    Intent intentWallet = new Intent(MainActivity.this, SavingsActivity.class);
+                    startActivity(intentWallet);
+                    return true;
+                } else if (id == R.id.budget) {
+                    Log.d(TAG, "Selected menu item: Budget");
+                    // Navigate to LogActivity (Lịch sử)
+                    Intent intentLog = new Intent(MainActivity.this, LogActivity.class);
+                    startActivity(intentLog);
+                    return true;
+                } else if (id == R.id.user) {
+                    Log.d(TAG, "Selected menu item: User");
+                    // Handle navigation to account page (if applicable)
+                    // Example: Navigate to AccountActivity
+                    Intent intentUser = new Intent(MainActivity.this, AccountActivity.class);
+                    startActivity(intentUser);
+                    return true;
+                }
+                return false;
+            }
+        });
+    }
+
+    private void navigateToTransactionDetails(Expenses transaction, String transactionType) {
+        Intent intent = new Intent(MainActivity.this, TransactionDetailsActivity.class);
+        intent.putExtra("transactionType", transactionType);
+        intent.putExtra("transactionId", transaction.getId());
+        startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.bottmmenu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.home) {
+            Log.d("MainActivity", "Selected menu item: Home");
+            // Already in MainActivity, no need to navigate
+            return true;
+        } else if (id == R.id.wallet) {
+            Log.d("MainActivity", "Selected menu item: Wallet");
+            Intent intentWallet = new Intent(MainActivity.this, SavingsActivity.class);
+            startActivity(intentWallet);
+            return true;
+        } else if (id == R.id.budget) {
+            Log.d("MainActivity", "Selected menu item: Budget");
+            // Navigate to LogActivity (Lịch sử)
+            Intent intentLog = new Intent(MainActivity.this, LogActivity.class);
+            startActivity(intentLog);
+            return true;
+        } else if (id == R.id.user) {
+            Log.d("MainActivity", "Selected menu item: User");
+            // Handle navigation to account page (if applicable)
+            // Example: Navigate to AccountActivity
+            Intent intentUser = new Intent(MainActivity.this, AccountActivity.class);
+            startActivity(intentUser);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

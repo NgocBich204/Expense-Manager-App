@@ -1,21 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-<item
-    android:id="@+id/home"
-    android:icon="@drawable/ic_action_home"
-    android:title="Tổng quan" />
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_action_home"
+        android:title="Tổng quan" />
     <item
         android:id="@+id/wallet"
         android:icon="@drawable/ic_action_wallet"
         android:title="Sổ tiết kiệm" />
-
     <item
         android:id="@+id/budget"
         android:icon="@drawable/ic_action_budget"
-        android:title="lịch sử " />
+        android:title="Lịch sử" />
     <item
         android:id="@+id/user"
         android:icon="@drawable/ic_action_user"
         android:title="Tài khoản" />
-
 </menu>

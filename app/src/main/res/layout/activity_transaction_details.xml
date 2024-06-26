@@ -7,42 +7,34 @@
     android:orientation="vertical"
     android:padding="10dp">
 
-    <!-- Header with Cancel button and Edit Title -->
+    <!-- Header with buttons -->
     <LinearLayout
         android:id="@+id/headerLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="10dp"
-        android:gravity="end">
+        android:padding="10dp">
 
-        <!-- Cancel Button -->
+        <!-- Đóng Button -->
         <Button
-            android:id="@+id/button_cancel"
+            android:id="@+id/button_close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackground"
-            android:text="Hủy"
+            android:text="Đóng"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
 
-        <!-- Edit Transaction Title -->
-        <TextView
-            android:id="@+id/textView_editTitle"
-            android:layout_width="0dp"
-            android:layout_height="49dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:text="Sửa giao dịch"
+        <Button
+            android:id="@+id/button_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="170dp"
+            android:background="?attr/selectableItemBackground"
+            android:text="Sửa"
             android:textColor="@android:color/black"
-            android:textSize="28sp"
-            android:textStyle="bold" />
-
+            android:textSize="18sp" />
     </LinearLayout>
-
-    <!-- Divider -->
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -77,12 +69,11 @@
                 android:layout_weight="1"
                 android:layout_marginStart="20dp"
                 android:textSize="34sp"
-                android:textColor="@android:color/black"
-                tools:text="Category Name" />
+                android:textColor="@android:color/black" />
         </LinearLayout>
 
-        <!-- EditText for Total -->
-        <EditText
+        <!-- TextView for Total -->
+        <TextView
             android:id="@+id/editText_total"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -91,16 +82,9 @@
             android:textSize="36sp"
             android:textColor="@android:color/holo_red_dark"
             android:enabled="false"
-            android:focusable="false"
-            android:hint="Total Amount"
-            tools:text="1000" />
+            android:focusable="false" />
 
         <!-- Divider -->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginVertical="10dp"
-            android:background="@android:color/darker_gray" />
 
         <!-- LinearLayout for Date -->
         <LinearLayout
@@ -123,7 +107,7 @@
                 android:layout_marginStart="10dp"
                 android:textSize="20sp"
                 android:textColor="@android:color/black"
-                tools:text="Transaction Date" />
+                android:text="Chọn ngày" />
         </LinearLayout>
 
         <!-- LinearLayout for Title -->
@@ -146,13 +130,12 @@
                 android:layout_weight="1"
                 android:layout_marginStart="10dp"
                 android:textSize="20sp"
-                android:textColor="@android:color/black"
-                tools:text="Transaction Title" />
+                android:textColor="@android:color/black" />
         </LinearLayout>
 
-        <!-- Button for Save Transaction -->
+        <!-- Button for Delete Transaction -->
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardViewSave"
+            android:id="@+id/cardViewDelete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -161,10 +144,10 @@
             app:cardBackgroundColor="@android:color/white">
 
             <Button
-                android:id="@+id/button_save"
+                android:id="@+id/button_delete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Lưu"
+                android:text="Xóa giao dịch"
                 android:textSize="18sp"
                 android:textColor="@android:color/holo_red_dark"
                 android:background="?attr/selectableItemBackground" />

@@ -3,6 +3,8 @@ package com.example.smartwall;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -14,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.smartwall.model.Expenses;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -157,6 +160,39 @@ public class MainActivity extends AppCompatActivity {
                 navigateToTransactionDetails(selectedExpense, "expenses");
             }
         });
+
+        // Initialize and set listener for BottomNavigationView
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                if (id == R.id.home) {
+                    Log.d(TAG, "Selected menu item: Home");
+                    // Already in MainActivity, no need to navigate
+                    return true;
+                } else if (id == R.id.wallet) {
+                    Log.d(TAG, "Selected menu item: Wallet");
+                    Intent intentWallet = new Intent(MainActivity.this, SavingsActivity.class);
+                    startActivity(intentWallet);
+                    return true;
+                } else if (id == R.id.budget) {
+                    Log.d(TAG, "Selected menu item: Budget");
+                    // Navigate to LogActivity (Lịch sử)
+                    Intent intentLog = new Intent(MainActivity.this, LogActivity.class);
+                    startActivity(intentLog);
+                    return true;
+                } else if (id == R.id.user) {
+                    Log.d(TAG, "Selected menu item: User");
+                    // Handle navigation to account page (if applicable)
+                    // Example: Navigate to AccountActivity
+                    Intent intentUser = new Intent(MainActivity.this, AccountActivity.class);
+                    startActivity(intentUser);
+                    return true;
+                }
+                return false;
+            }
+        });
     }
 
     private void navigateToTransactionDetails(Expenses transaction, String transactionType) {
@@ -164,5 +200,40 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("transactionType", transactionType);
         intent.putExtra("transactionId", transaction.getId());
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.bottmmenu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.home) {
+            Log.d("MainActivity", "Selected menu item: Home");
+            // Already in MainActivity, no need to navigate
+            return true;
+        } else if (id == R.id.wallet) {
+            Log.d("MainActivity", "Selected menu item: Wallet");
+            Intent intentWallet = new Intent(MainActivity.this, SavingsActivity.class);
+            startActivity(intentWallet);
+            return true;
+        } else if (id == R.id.budget) {
+            Log.d("MainActivity", "Selected menu item: Budget");
+            // Navigate to LogActivity (Lịch sử)
+            Intent intentLog = new Intent(MainActivity.this, LogActivity.class);
+            startActivity(intentLog);
+            return true;
+        } else if (id == R.id.user) {
+            Log.d("MainActivity", "Selected menu item: User");
+            // Handle navigation to account page (if applicable)
+            // Example: Navigate to AccountActivity
+            Intent intentUser = new Intent(MainActivity.this, AccountActivity.class);
+            startActivity(intentUser);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

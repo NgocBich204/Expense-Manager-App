@@ -1,12 +1,14 @@
+// TransactionDetailsActivity.java
 package com.example.smartwall;
 
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,11 +25,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Calendar;
+
 public class TransactionDetailsActivity extends AppCompatActivity {
     private Button buttonClose, buttonEdit, buttonDelete;
-    private TextView textViewCategory, textViewDate, textViewTitle;
-    private EditText editTextTotal;
-    private ImageView imageViewCategory, imageViewDate, imageViewTitle;
+    private TextView textViewCategory, textViewDate, textViewTitle, textViewTotal;
 
     private DatabaseReference databaseReference;
     private String transactionType;
@@ -36,7 +38,7 @@ public class TransactionDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.transaction_details);
+        setContentView(R.layout.activity_transaction_details);
 
         // Initialize views
         buttonClose = findViewById(R.id.button_close);
@@ -45,10 +47,7 @@ public class TransactionDetailsActivity extends AppCompatActivity {
         textViewCategory = findViewById(R.id.textView_category);
         textViewDate = findViewById(R.id.textView_date);
         textViewTitle = findViewById(R.id.textView_title);
-        editTextTotal = findViewById(R.id.editText_total);
-        imageViewCategory = findViewById(R.id.imageView_category);
-        imageViewDate = findViewById(R.id.imageView_date);
-        imageViewTitle = findViewById(R.id.imageView_title);
+        textViewTotal = findViewById(R.id.editText_total);
 
         // Initialize Firebase reference
         databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -80,7 +79,15 @@ public class TransactionDetailsActivity extends AppCompatActivity {
         buttonEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateTransaction();
+                Intent intent = new Intent(TransactionDetailsActivity.this, EditTransactionActivity.class);
+                intent.putExtra("transactionType", transactionType);
+                intent.putExtra("transactionId", transactionId);
+                intent.putExtra("category", textViewCategory.getText().toString());
+                intent.putExtra("total", textViewTotal.getText().toString());
+                intent.putExtra("date", textViewDate.getText().toString());
+                intent.putExtra("title", textViewTitle.getText().toString());
+
+                startActivity(intent);
             }
         });
 
@@ -89,6 +96,14 @@ public class TransactionDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showDeleteConfirmationDialog();
+            }
+        });
+
+        // Set event listener for Date TextView
+        textViewDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDatePickerDialog();
             }
         });
     }
@@ -104,7 +119,7 @@ public class TransactionDetailsActivity extends AppCompatActivity {
                 if (transaction != null) {
                     // Display transaction details in your TextView or other UI elements
                     textViewCategory.setText(transaction.getCategory());
-                    editTextTotal.setText(transaction.getTotal());
+                    textViewTotal.setText(String.valueOf(transaction.getTotal())); // Ensure total is displayed correctly
                     textViewDate.setText(transaction.getDate());
                     textViewTitle.setText(transaction.getTitle());
                 } else {
@@ -117,32 +132,6 @@ public class TransactionDetailsActivity extends AppCompatActivity {
                 Toast.makeText(TransactionDetailsActivity.this, "Error fetching transaction details", Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    private void updateTransaction() {
-        String newTotal = editTextTotal.getText().toString();
-
-        if (!newTotal.isEmpty()) {
-            // Update the transaction with new total
-            DatabaseReference transactionRef = databaseReference.child(transactionType).child(transactionId);
-            transactionRef.child("total").setValue(newTotal)
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            Toast.makeText(TransactionDetailsActivity.this, "Transaction updated successfully", Toast.LENGTH_SHORT).show();
-                            // Optionally, you can finish the activity or perform any other actions after update
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Log.e("TransactionDetailsActivity", "Error updating transaction", e);
-                            Toast.makeText(TransactionDetailsActivity.this, "Failed to update transaction", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-        } else {
-            Toast.makeText(TransactionDetailsActivity.this, "Please enter a new total", Toast.LENGTH_SHORT).show();
-        }
     }
 
     private void showDeleteConfirmationDialog() {
@@ -172,9 +161,25 @@ public class TransactionDetailsActivity extends AppCompatActivity {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Log.e("TransactionDetailsActivity", "Lỗi khi xóa giao dịch", e);
-                        Toast.makeText(TransactionDetailsActivity.this, "Xóa giao dịch thất bại", Toast.LENGTH_SHORT).show();
+                        Log.e("TransactionDetailsActivity", "Failed to delete transaction", e);
+                        Toast.makeText(TransactionDetailsActivity.this, "Failed to delete transaction", Toast.LENGTH_SHORT).show();
                     }
                 });
+    }
+
+    private void showDatePickerDialog() {
+        final Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int selectedYear, int selectedMonth, int selectedDay) {
+                String date = selectedDay + "/" + (selectedMonth + 1) + "/" + selectedYear;
+                textViewDate.setText(date);
+            }
+        }, year, month, day);
+        datePickerDialog.show();
     }
 }

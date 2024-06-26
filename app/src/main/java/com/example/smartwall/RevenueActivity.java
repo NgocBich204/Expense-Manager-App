@@ -47,7 +47,7 @@ public class RevenueActivity extends AppCompatActivity implements AdapterView.On
         buttonSubmit = findViewById(R.id.buttonSubmit);
         imageViewBack = findViewById(R.id.imageViewBackToHome);
 
-        // Setup Spinner with Custom Adapter
+        // Setup Spinner with Custom  Adapter
         String[] items = new String[]{"Lương", "Thưởng", "Tiền lãi", "Khác"};
         SpinnerAdapter adapter = new SpinnerAdapter(this, items);
         spinnerCategories.setAdapter(adapter);

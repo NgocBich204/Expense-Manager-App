@@ -48,7 +48,7 @@ public class ExpensesActivity extends AppCompatActivity implements AdapterView.O
         imageViewBack = findViewById(R.id.imageViewBack);
 
         // Setup Spinner with Custom Adapter
-        String[] items = new String[]{"Mua sắm", "Đồ ăn", "Thuê nhà", "Hóa đơn"};
+        String[] items = new String[]{"Mua sắm", "Ăn uống", "Thuê nhà", "Hóa đơn", "Quần áo", "Mỹ phẩm", "Y tế", "Giáo dục", "Đi lại", "Chi tiêu hàng ngày", "Khác"};
         SpinnerAdapter adapter = new SpinnerAdapter(this, items);
         spinnerCategories.setAdapter(adapter);
         spinnerCategories.setOnItemSelectedListener(this);

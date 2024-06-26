@@ -30,12 +30,6 @@
             android:textSize="26sp"
             android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/userIcon"
-            android:layout_width="63dp"
-            android:layout_height="37dp"
-            android:layout_gravity="end"
-            app:srcCompat="@drawable/baseline_people_alt_24" />
     </LinearLayout>
 
     <!-- Cards Section -->

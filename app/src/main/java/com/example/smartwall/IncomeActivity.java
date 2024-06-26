@@ -48,7 +48,7 @@ public class IncomeActivity extends AppCompatActivity implements AdapterView.OnI
         imageViewBack = findViewById(R.id.imageViewBackToHome);
 
         // Setup Spinner with Custom  Adapter
-        String[] items = new String[]{"Lương", "Thưởng", "Tiền lãi", "Khác"};
+        String[] items = new String[]{"Tiền lương", "Tiền phụ cấp", "Tiền thu nhập phụ", "Đầu tư","Khác"};
         SpinnerAdapter adapter = new SpinnerAdapter(this, items);
         spinnerCategories.setAdapter(adapter);
         spinnerCategories.setOnItemSelectedListener(this);

@@ -1,61 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:padding="16dp">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/textViewGoalName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical">
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"/>
 
-        <!-- Goal Amount với chữ màu xanh -->
-        <TextView
-            android:id="@+id/textViewGoalAmount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Goal Amount"
-            android:textSize="20sp"
-            android:textColor="@android:color/holo_blue_dark"
-            android:textStyle="bold"
-            android:layout_marginEnd="8dp" />
-
-        <!-- Goal Name nằm bên phải -->
-        <TextView
-            android:id="@+id/textViewGoalName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Goal Name"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginStart="8dp" />
-    </LinearLayout>
-
-    <LinearLayout
+    <TextView
+        android:id="@+id/textViewGoalAmount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical">
+        android:textSize="16sp"
+        android:textColor="@android:color/darker_gray"/>
 
-        <!-- Start Date -->
-        <TextView
-            android:id="@+id/textViewStartDate"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Start Date"
-            android:textSize="16sp" />
+    <TextView
+        android:id="@+id/textViewStartDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="@android:color/darker_gray"/>
 
-        <!-- End Date -->
-        <TextView
-            android:id="@+id/textViewEndDate"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="End Date"
-            android:textSize="16sp" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/textViewEndDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="@android:color/darker_gray"/>
+
 </LinearLayout>

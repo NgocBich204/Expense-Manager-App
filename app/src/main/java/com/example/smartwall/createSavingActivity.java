@@ -1,18 +1,15 @@
 package com.example.smartwall;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.smartwall.model.Goal;
 import com.google.firebase.database.DatabaseReference;
@@ -23,13 +20,11 @@ import java.util.Calendar;
 public class createSavingActivity extends AppCompatActivity {
 
     private EditText editStartDate, editEndDate, editGoalName, editGoalAmount, editNotes;
-    private Button btnAddGoal;
     private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_create_saving);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("goals");
@@ -39,7 +34,7 @@ public class createSavingActivity extends AppCompatActivity {
         editGoalName = findViewById(R.id.editGoalName);
         editGoalAmount = findViewById(R.id.editGoalAmount);
         editNotes = findViewById(R.id.editNotes);
-        btnAddGoal = findViewById(R.id.btnAddGoal);
+
         editStartDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,18 +49,20 @@ public class createSavingActivity extends AppCompatActivity {
             }
         });
 
-        btnAddGoal.setOnClickListener(new View.OnClickListener() {
+        ImageView imageViewBackToHome = findViewById(R.id.imageViewBackToHome);
+        imageViewBackToHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(createSavingActivity.this, MainActivity.class));
+                finish();
+            }
+        });
+
+        findViewById(R.id.btnAddGoal).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addGoalToFirebase();
             }
-        });
-
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.createSaving), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
         });
     }
 
@@ -105,5 +102,13 @@ public class createSavingActivity extends AppCompatActivity {
         databaseReference.child(id).setValue(goal);
 
         Toast.makeText(this, "Mục tiêu đã được thêm", Toast.LENGTH_SHORT).show();
+
+        // Sau khi thêm thành công, có thể thêm các logic tiếp theo ở đây nếu cần
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        // Optionally add additional logic here if needed
     }
 }

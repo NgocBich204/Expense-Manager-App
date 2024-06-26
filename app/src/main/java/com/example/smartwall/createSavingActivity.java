@@ -53,7 +53,7 @@ public class createSavingActivity extends AppCompatActivity {
         imageViewBackToHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(createSavingActivity.this, MainActivity.class));
+                startActivity(new Intent(createSavingActivity.this, SavingsActivity.class));
                 finish();
             }
         });

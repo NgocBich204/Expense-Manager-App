@@ -20,7 +20,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class RevenueActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class IncomeActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private EditText editTextTitle, editTextTotal;
     private Spinner spinnerCategories;
@@ -34,7 +34,7 @@ public class RevenueActivity extends AppCompatActivity implements AdapterView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_evenue);
+        setContentView(R.layout.add_income);
 
         // Initialize Firebase Database
         databaseIncome = FirebaseDatabase.getInstance().getReference("income");
@@ -73,7 +73,7 @@ public class RevenueActivity extends AppCompatActivity implements AdapterView.On
         imageViewBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish(); // Đóng RevenueActivity và quay lại MainActivity
+                finish(); // Đóng IncomeActivity và quay lại MainActivity
             }
         });
     }
@@ -95,7 +95,7 @@ public class RevenueActivity extends AppCompatActivity implements AdapterView.On
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
-                    Toast.makeText(RevenueActivity.this, "Khoản thu đã được thêm", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(IncomeActivity.this, "Khoản thu đã được thêm", Toast.LENGTH_SHORT).show();
                     // Reset fields
                     editTextTitle.setText("");
                     editTextTotal.setText("");
@@ -108,7 +108,7 @@ public class RevenueActivity extends AppCompatActivity implements AdapterView.On
                     setResult(RESULT_OK, intent);
                     finish();
                 } else {
-                    Toast.makeText(RevenueActivity.this, "Thêm khoản thu thất bại", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(IncomeActivity.this, "Thêm khoản thu thất bại", Toast.LENGTH_SHORT).show();
                 }
             }
         });

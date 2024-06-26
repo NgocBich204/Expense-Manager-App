@@ -1,0 +1,1271 @@
+Index: app/src/main/res/layout/updateacount.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    android:orientation=\"vertical\"\n    tools:context=\".EditProfileActivity\">\n\n    <!-- Header với nền wave_shape -->\n    <LinearLayout\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:background=\"@drawable/wave_shape\"\n        android:gravity=\"center\"\n        android:orientation=\"vertical\"\n        android:padding=\"16dp\">\n\n        <TextView\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_gravity=\"center\"\n            android:paddingTop=\"50dp\"\n            android:singleLine=\"false\"\n            android:text=\"Chỉnh Sửa Thông Tin\"\n            android:textColor=\"#000000\"\n            android:textSize=\"34sp\"\n            android:textStyle=\"bold\" />\n    </LinearLayout>\n\n    <ScrollView\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"0dp\"\n        android:layout_weight=\"1\"\n        android:padding=\"16dp\">\n\n        <LinearLayout\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"wrap_content\"\n            android:orientation=\"vertical\">\n\n            <TextView\n                android:id=\"@+id/tvFullNameLabel\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginTop=\"32dp\"\n                android:text=\"Tên đầy đủ\"\n                android:textSize=\"16sp\"\n                android:textStyle=\"bold\" />\n\n            <EditText\n                android:id=\"@+id/edtFullName\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginTop=\"8dp\"\n                android:padding=\"10dp\"\n                android:hint=\"Nhập tên đầy đủ\"\n                android:text=\"Nguyễn Văn A\"\n                android:textSize=\"16sp\"\n                android:textColor=\"#000000\"\n                android:background=\"@drawable/edittext_background\" />\n\n            <TextView\n                android:id=\"@+id/tvEmailLabel\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginTop=\"16dp\"\n                android:text=\"E-Mail\"\n                android:textSize=\"16sp\"\n                android:textStyle=\"bold\" />\n\n            <EditText\n                android:id=\"@+id/edtEmail\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginTop=\"8dp\"\n                android:padding=\"10dp\"\n                android:hint=\"Nhập email\"\n                android:text=\"nguyenvana@gmail.com\"\n                android:textSize=\"16sp\"\n                android:textColor=\"#000000\"\n                android:background=\"@drawable/edittext_background\" />\n\n            <TextView\n                android:id=\"@+id/tvAgeLabel\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginTop=\"16dp\"\n                android:text=\"Tuổi\"\n                android:textSize=\"16sp\"\n                android:textStyle=\"bold\" />\n\n            <EditText\n                android:id=\"@+id/edtAge\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginTop=\"8dp\"\n                android:padding=\"10dp\"\n                android:hint=\"Nhập tuổi\"\n                android:text=\"25\"\n                android:textSize=\"16sp\"\n                android:textColor=\"#000000\"\n                android:background=\"@drawable/edittext_background\" />\n\n            <TextView\n                android:id=\"@+id/tvAddressLabel\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginTop=\"16dp\"\n                android:text=\"Địa chỉ\"\n                android:textSize=\"16sp\"\n                android:textStyle=\"bold\" />\n\n            <EditText\n                android:id=\"@+id/edtAddress\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginTop=\"8dp\"\n                android:padding=\"10dp\"\n                android:hint=\"Nhập địa chỉ\"\n                android:text=\"123 Đường ABC, Phường XYZ, TP.HCM\"\n                android:textSize=\"16sp\"\n                android:textColor=\"#000000\"\n                android:background=\"@drawable/edittext_background\" />\n\n            <TextView\n                android:id=\"@+id/tvOccupationLabel\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginTop=\"16dp\"\n                android:text=\"Nghề nghiệp\"\n                android:textSize=\"16sp\"\n                android:textStyle=\"bold\" />\n\n            <EditText\n                android:id=\"@+id/edtOccupation\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginTop=\"8dp\"\n                android:padding=\"10dp\"\n                android:hint=\"Nhập nghề nghiệp\"\n                android:text=\"Kỹ sư phần mềm\"\n                android:textSize=\"16sp\"\n                android:textColor=\"#000000\"\n                android:background=\"@drawable/edittext_background\" />\n\n            <TextView\n                android:id=\"@+id/tvPasswordLabel\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginTop=\"16dp\"\n                android:text=\"Mật khẩu\"\n                android:textSize=\"16sp\"\n                android:textStyle=\"bold\" />\n\n            <com.google.android.material.textfield.TextInputLayout\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginTop=\"8dp\"\n                app:endIconMode=\"password_toggle\">\n\n                <com.google.android.material.textfield.TextInputEditText\n                    android:id=\"@+id/edtPassword\"\n                    android:layout_width=\"match_parent\"\n                    android:layout_height=\"wrap_content\"\n                    android:background=\"@drawable/edittext_background\"\n                    android:hint=\"Nhập mật khẩu mới\"\n                    android:inputType=\"textPassword\"\n                    android:padding=\"10dp\"\n                    android:textColor=\"#B1A8A8\" />\n            </com.google.android.material.textfield.TextInputLayout>\n\n            <Button\n                android:id=\"@+id/btnSave\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginTop=\"16dp\"\n                android:backgroundTint=\"#0F39D1\"\n                android:text=\"Lưu\"\n                android:textColor=\"#FFFFFF\" />\n\n            <Button\n                android:id=\"@+id/btnCancel\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginTop=\"16dp\"\n                android:backgroundTint=\"#FF0000\"\n                android:text=\"Hủy\"\n                android:textColor=\"#FFFFFF\" />\n\n        </LinearLayout>\n    </ScrollView>\n</LinearLayout>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/updateacount.xml b/app/src/main/res/layout/updateacount.xml
+--- a/app/src/main/res/layout/updateacount.xml	(revision 919572c7adcfeab0e204138818bd02d803b374a1)
++++ b/app/src/main/res/layout/updateacount.xml	(date 1719410029910)
+@@ -1,13 +1,12 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-    xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:orientation="vertical"
+-    tools:context=".EditProfileActivity">
++    tools:context=".UpdateAccountActivity">
+ 
+-    <!-- Header với nền wave_shape -->
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+@@ -21,14 +20,14 @@
+             android:layout_height="wrap_content"
+             android:layout_gravity="center"
+             android:paddingTop="50dp"
+-            android:singleLine="false"
+-            android:text="Chỉnh Sửa Thông Tin"
++            android:text="Thông Tin Cá Nhân"
+             android:textColor="#000000"
+             android:textSize="34sp"
+             android:textStyle="bold" />
+     </LinearLayout>
+ 
+     <ScrollView
++        android:id="@+id/scrollView"
+         android:layout_width="match_parent"
+         android:layout_height="0dp"
+         android:layout_weight="1"
+@@ -49,16 +48,14 @@
+                 android:textStyle="bold" />
+ 
+             <EditText
+-                android:id="@+id/edtFullName"
++                android:id="@+id/etFullName"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="8dp"
++                android:background="@drawable/edittext_background"
+                 android:padding="10dp"
+-                android:hint="Nhập tên đầy đủ"
+-                android:text="Nguyễn Văn A"
+-                android:textSize="16sp"
+                 android:textColor="#000000"
+-                android:background="@drawable/edittext_background" />
++                android:textSize="16sp" />
+ 
+             <TextView
+                 android:id="@+id/tvEmailLabel"
+@@ -70,86 +67,21 @@
+                 android:textStyle="bold" />
+ 
+             <EditText
+-                android:id="@+id/edtEmail"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:layout_marginTop="8dp"
+-                android:padding="10dp"
+-                android:hint="Nhập email"
+-                android:text="nguyenvana@gmail.com"
+-                android:textSize="16sp"
+-                android:textColor="#000000"
+-                android:background="@drawable/edittext_background" />
+-
+-            <TextView
+-                android:id="@+id/tvAgeLabel"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:layout_marginTop="16dp"
+-                android:text="Tuổi"
+-                android:textSize="16sp"
+-                android:textStyle="bold" />
+-
+-            <EditText
+-                android:id="@+id/edtAge"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:layout_marginTop="8dp"
+-                android:padding="10dp"
+-                android:hint="Nhập tuổi"
+-                android:text="25"
+-                android:textSize="16sp"
+-                android:textColor="#000000"
+-                android:background="@drawable/edittext_background" />
+-
+-            <TextView
+-                android:id="@+id/tvAddressLabel"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:layout_marginTop="16dp"
+-                android:text="Địa chỉ"
+-                android:textSize="16sp"
+-                android:textStyle="bold" />
+-
+-            <EditText
+-                android:id="@+id/edtAddress"
++                android:id="@+id/etEmail"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="8dp"
++                android:background="@drawable/edittext_background"
+                 android:padding="10dp"
+-                android:hint="Nhập địa chỉ"
+-                android:text="123 Đường ABC, Phường XYZ, TP.HCM"
+-                android:textSize="16sp"
+                 android:textColor="#000000"
+-                android:background="@drawable/edittext_background" />
+-
+-            <TextView
+-                android:id="@+id/tvOccupationLabel"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:layout_marginTop="16dp"
+-                android:text="Nghề nghiệp"
+-                android:textSize="16sp"
+-                android:textStyle="bold" />
+-
+-            <EditText
+-                android:id="@+id/edtOccupation"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:layout_marginTop="8dp"
+-                android:padding="10dp"
+-                android:hint="Nhập nghề nghiệp"
+-                android:text="Kỹ sư phần mềm"
+-                android:textSize="16sp"
+-                android:textColor="#000000"
+-                android:background="@drawable/edittext_background" />
++                android:textSize="16sp" />
+ 
+             <TextView
+                 android:id="@+id/tvPasswordLabel"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="16dp"
+-                android:text="Mật khẩu"
++                android:text="Mật khẩu mới"
+                 android:textSize="16sp"
+                 android:textStyle="bold" />
+ 
+@@ -160,34 +92,35 @@
+                 app:endIconMode="password_toggle">
+ 
+                 <com.google.android.material.textfield.TextInputEditText
+-                    android:id="@+id/edtPassword"
++                    android:id="@+id/etNewPassword"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:background="@drawable/edittext_background"
+-                    android:hint="Nhập mật khẩu mới"
+                     android:inputType="textPassword"
+                     android:padding="10dp"
+                     android:textColor="#B1A8A8" />
+             </com.google.android.material.textfield.TextInputLayout>
+ 
++            <!-- Button "Lưu thông tin" -->
+             <Button
+                 android:id="@+id/btnSave"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="16dp"
+                 android:backgroundTint="#0F39D1"
+-                android:text="Lưu"
++                android:text="Lưu thông tin"
+                 android:textColor="#FFFFFF" />
+ 
++            <!-- Button "Hủy" -->
+             <Button
+                 android:id="@+id/btnCancel"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="16dp"
+-                android:backgroundTint="#FF0000"
+-                android:text="Hủy"
++                android:backgroundTint="#9C27B0"
++                android:text="Quay trở lại"
+                 android:textColor="#FFFFFF" />
+ 
+         </LinearLayout>
+     </ScrollView>
+-</LinearLayout>
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_account.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    android:orientation=\"vertical\"\n    tools:context=\".AccountActivity\">\n    <!-- Header với nền wave_shape -->\n    <LinearLayout\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:background=\"@drawable/wave_shape\"\n        android:gravity=\"center\"\n        android:orientation=\"vertical\"\n        android:padding=\"16dp\">\n\n        <TextView\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_gravity=\"center\"\n            android:paddingTop=\"50dp\"\n            android:singleLine=\"false\"\n            android:text=\"Thông Tin Cá Nhân\"\n            android:textColor=\"#000000\"\n            android:textSize=\"34sp\"\n            android:textStyle=\"bold\" />\n    </LinearLayout>\n\n    <ScrollView\n        android:id=\"@+id/Account\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"0dp\"\n        android:layout_weight=\"1\"\n        android:padding=\"16dp\">\n\n        <LinearLayout\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"wrap_content\"\n            android:orientation=\"vertical\">\n\n            <TextView\n                android:id=\"@+id/tvFullNameLabel\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginTop=\"32dp\"\n                android:text=\"Tên đầy đủ\"\n                android:textSize=\"16sp\"\n                android:textStyle=\"bold\" />\n\n            <TextView\n                android:id=\"@+id/tvFullName\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginTop=\"8dp\"\n                android:background=\"@drawable/edittext_background\"\n                android:padding=\"10dp\"\n                android:text=\"Nguyễn Văn A\"\n                android:textColor=\"#000000\"\n                android:textSize=\"16sp\" />\n\n            <TextView\n                android:id=\"@+id/tvEmailLabel\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginTop=\"16dp\"\n                android:text=\"E-Mail\"\n                android:textSize=\"16sp\"\n                android:textStyle=\"bold\" />\n\n            <TextView\n                android:id=\"@+id/tvEmail\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginTop=\"8dp\"\n                android:background=\"@drawable/edittext_background\"\n                android:padding=\"10dp\"\n                android:text=\"nguyenvana@gmail.com\"\n                android:textColor=\"#000000\"\n                android:textSize=\"16sp\" />\n\n            <TextView\n                android:id=\"@+id/tvAgeLabel\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginTop=\"16dp\"\n                android:text=\"Tuổi\"\n                android:textSize=\"16sp\"\n                android:textStyle=\"bold\" />\n\n            <TextView\n                android:id=\"@+id/tvAge\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginTop=\"8dp\"\n                android:background=\"@drawable/edittext_background\"\n                android:padding=\"10dp\"\n                android:text=\"25\"\n                android:textColor=\"#000000\"\n                android:textSize=\"16sp\" />\n\n            <TextView\n                android:id=\"@+id/tvAddressLabel\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginTop=\"16dp\"\n                android:text=\"Địa chỉ\"\n                android:textSize=\"16sp\"\n                android:textStyle=\"bold\" />\n\n            <TextView\n                android:id=\"@+id/tvAddress\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginTop=\"8dp\"\n                android:background=\"@drawable/edittext_background\"\n                android:padding=\"10dp\"\n                android:text=\"123 Đường ABC, Phường XYZ, TP.HCM\"\n                android:textColor=\"#000000\"\n                android:textSize=\"16sp\" />\n\n            <TextView\n                android:id=\"@+id/tvOccupationLabel\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginTop=\"16dp\"\n                android:text=\"Nghề nghiệp\"\n                android:textSize=\"16sp\"\n                android:textStyle=\"bold\" />\n\n            <TextView\n                android:id=\"@+id/tvOccupation\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginTop=\"8dp\"\n                android:background=\"@drawable/edittext_background\"\n                android:padding=\"10dp\"\n                android:text=\"Kỹ sư phần mềm\"\n                android:textColor=\"#000000\"\n                android:textSize=\"16sp\" />\n\n            <TextView\n                android:id=\"@+id/tvPasswordLabel\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginTop=\"16dp\"\n                android:text=\"Mật khẩu\"\n                android:textSize=\"16sp\"\n                android:textStyle=\"bold\" />\n\n            <TextView\n                android:id=\"@+id/tvPassword\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginTop=\"8dp\"\n                android:background=\"@drawable/edittext_background\"\n                android:padding=\"10dp\"\n                android:text=\"********\"\n                android:textColor=\"#000000\"\n                android:textSize=\"16sp\" />\n\n            <Button\n                android:id=\"@+id/btnEditProfile\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginTop=\"16dp\"\n                android:backgroundTint=\"#0F39D1\"\n                android:text=\"Chỉnh sửa thông tin\"\n                android:textColor=\"#FFFFFF\" />\n\n            <Button\n                android:id=\"@+id/btnLogout\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_marginTop=\"16dp\"\n                android:backgroundTint=\"#FF0000\"\n                android:text=\"Đăng xuất\"\n                android:textColor=\"#FFFFFF\" />\n\n        </LinearLayout>\n    </ScrollView>\n</LinearLayout>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_account.xml b/app/src/main/res/layout/activity_account.xml
+--- a/app/src/main/res/layout/activity_account.xml	(revision 919572c7adcfeab0e204138818bd02d803b374a1)
++++ b/app/src/main/res/layout/activity_account.xml	(date 1719411137524)
+@@ -1,12 +1,11 @@
+-<?xml version="1.0" encoding="utf-8"?>
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-    xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:orientation="vertical"
+     tools:context=".AccountActivity">
+-    <!-- Header với nền wave_shape -->
++
++    <!-- Phần header với nền dạng sóng và tiêu đề -->
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+@@ -20,15 +19,15 @@
+             android:layout_height="wrap_content"
+             android:layout_gravity="center"
+             android:paddingTop="50dp"
+-            android:singleLine="false"
+             android:text="Thông Tin Cá Nhân"
+             android:textColor="#000000"
+             android:textSize="34sp"
+             android:textStyle="bold" />
+     </LinearLayout>
+ 
++    <!-- ScrollView chứa các thông tin chi tiết -->
+     <ScrollView
+-        android:id="@+id/Account"
++        android:id="@+id/scrollView"
+         android:layout_width="match_parent"
+         android:layout_height="0dp"
+         android:layout_weight="1"
+@@ -39,8 +38,9 @@
+             android:layout_height="wrap_content"
+             android:orientation="vertical">
+ 
++            <!-- Tên đầy đủ -->
+             <TextView
+-                android:id="@+id/tvFullNameLabel"
++                android:id="@+id/tvFullName"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="32dp"
+@@ -48,17 +48,18 @@
+                 android:textSize="16sp"
+                 android:textStyle="bold" />
+ 
+-            <TextView
+-                android:id="@+id/tvFullName"
++            <EditText
++                android:id="@+id/etFullName"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="8dp"
+                 android:background="@drawable/edittext_background"
+                 android:padding="10dp"
+-                android:text="Nguyễn Văn A"
+                 android:textColor="#000000"
+-                android:textSize="16sp" />
++                android:textSize="16sp"
++                android:enabled="false" />
+ 
++            <!-- Email -->
+             <TextView
+                 android:id="@+id/tvEmailLabel"
+                 android:layout_width="match_parent"
+@@ -68,96 +69,16 @@
+                 android:textSize="16sp"
+                 android:textStyle="bold" />
+ 
+-            <TextView
+-                android:id="@+id/tvEmail"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:layout_marginTop="8dp"
+-                android:background="@drawable/edittext_background"
+-                android:padding="10dp"
+-                android:text="nguyenvana@gmail.com"
+-                android:textColor="#000000"
+-                android:textSize="16sp" />
+-
+-            <TextView
+-                android:id="@+id/tvAgeLabel"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:layout_marginTop="16dp"
+-                android:text="Tuổi"
+-                android:textSize="16sp"
+-                android:textStyle="bold" />
+-
+-            <TextView
+-                android:id="@+id/tvAge"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:layout_marginTop="8dp"
+-                android:background="@drawable/edittext_background"
+-                android:padding="10dp"
+-                android:text="25"
+-                android:textColor="#000000"
+-                android:textSize="16sp" />
+-
+-            <TextView
+-                android:id="@+id/tvAddressLabel"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:layout_marginTop="16dp"
+-                android:text="Địa chỉ"
+-                android:textSize="16sp"
+-                android:textStyle="bold" />
+-
+-            <TextView
+-                android:id="@+id/tvAddress"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:layout_marginTop="8dp"
+-                android:background="@drawable/edittext_background"
+-                android:padding="10dp"
+-                android:text="123 Đường ABC, Phường XYZ, TP.HCM"
+-                android:textColor="#000000"
+-                android:textSize="16sp" />
+-
+-            <TextView
+-                android:id="@+id/tvOccupationLabel"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:layout_marginTop="16dp"
+-                android:text="Nghề nghiệp"
+-                android:textSize="16sp"
+-                android:textStyle="bold" />
+-
+-            <TextView
+-                android:id="@+id/tvOccupation"
++            <EditText
++                android:id="@+id/etEmail"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="8dp"
+                 android:background="@drawable/edittext_background"
+                 android:padding="10dp"
+-                android:text="Kỹ sư phần mềm"
+                 android:textColor="#000000"
+-                android:textSize="16sp" />
+-
+-            <TextView
+-                android:id="@+id/tvPasswordLabel"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:layout_marginTop="16dp"
+-                android:text="Mật khẩu"
+                 android:textSize="16sp"
+-                android:textStyle="bold" />
+-
+-            <TextView
+-                android:id="@+id/tvPassword"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:layout_marginTop="8dp"
+-                android:background="@drawable/edittext_background"
+-                android:padding="10dp"
+-                android:text="********"
+-                android:textColor="#000000"
+-                android:textSize="16sp" />
++                android:enabled="false" />
+ 
+             <Button
+                 android:id="@+id/btnEditProfile"
+@@ -165,9 +86,10 @@
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="16dp"
+                 android:backgroundTint="#0F39D1"
+-                android:text="Chỉnh sửa thông tin"
++                android:text="Cập nhật thông tin cá nhân"
+                 android:textColor="#FFFFFF" />
+ 
++            <!-- Nút đăng xuất -->
+             <Button
+                 android:id="@+id/btnLogout"
+                 android:layout_width="match_parent"
+Index: app/src/main/java/com/example/smartwall/AccountActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.smartwall;\n\nimport android.annotation.SuppressLint;\nimport android.os.Bundle;\n\nimport androidx.activity.EdgeToEdge;\nimport androidx.appcompat.app.AppCompatActivity;\nimport androidx.core.graphics.Insets;\nimport androidx.core.view.ViewCompat;\nimport androidx.core.view.WindowInsetsCompat;\n\npublic class AccountActivity extends AppCompatActivity {\n    @SuppressLint(\"MissingInflatedId\")\n    @Override\n    protected void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        EdgeToEdge.enable(this); // Enable edge-to-edge display\n        setContentView(R.layout.activity_account); // Set the layout for this activity\n\n        // Set an OnApplyWindowInsetsListener to handle system bars insets\n        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.Account), (v, insets) -> {\n            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());\n            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);\n            return insets;\n        });\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/smartwall/AccountActivity.java b/app/src/main/java/com/example/smartwall/AccountActivity.java
+--- a/app/src/main/java/com/example/smartwall/AccountActivity.java	(revision 919572c7adcfeab0e204138818bd02d803b374a1)
++++ b/app/src/main/java/com/example/smartwall/AccountActivity.java	(date 1719411061979)
+@@ -1,27 +1,81 @@
+ package com.example.smartwall;
+ 
+-import android.annotation.SuppressLint;
++import android.content.Intent;
++import android.content.SharedPreferences;
+ import android.os.Bundle;
++import android.view.View;
++import android.widget.Button;
++import android.widget.EditText;
+ 
+-import androidx.activity.EdgeToEdge;
++import androidx.annotation.NonNull;
+ import androidx.appcompat.app.AppCompatActivity;
+-import androidx.core.graphics.Insets;
+-import androidx.core.view.ViewCompat;
+-import androidx.core.view.WindowInsetsCompat;
++
++import com.google.firebase.auth.FirebaseAuth;
++import com.google.firebase.auth.FirebaseUser;
+ 
+ public class AccountActivity extends AppCompatActivity {
+-    @SuppressLint("MissingInflatedId")
++
++    private EditText etFullName, etEmail;
++    private Button btnEditProfile, btnLogout;
++    private FirebaseAuth mAuth;
++
++    private SharedPreferences sharedPreferences;
++    private static final String PREFS_NAME = "MyPrefs";
++    private static final String IS_LOGGED_IN = "isLoggedIn";
++
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+-        EdgeToEdge.enable(this); // Enable edge-to-edge display
+-        setContentView(R.layout.activity_account); // Set the layout for this activity
++        setContentView(R.layout.activity_account);
++
++        // Khởi tạo FirebaseAuth instance
++        mAuth = FirebaseAuth.getInstance();
++
++        // Khởi tạo SharedPreferences
++        sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
++
++        // Ánh xạ các view từ layout
++        etFullName = findViewById(R.id.etFullName);
++        etEmail = findViewById(R.id.etEmail);
++        btnEditProfile = findViewById(R.id.btnEditProfile);
++        btnLogout = findViewById(R.id.btnLogout);
++
++        // Lấy thông tin người dùng hiện tại từ Firebase Authentication
++        FirebaseUser currentUser = mAuth.getCurrentUser();
++        if (currentUser != null) {
++            String fullName = currentUser.getDisplayName();
++            String email = currentUser.getEmail();
+ 
+-        // Set an OnApplyWindowInsetsListener to handle system bars insets
+-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.Account), (v, insets) -> {
+-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+-            return insets;
++            // Hiển thị thông tin người dùng lên giao diện
++            etFullName.setText(fullName);
++            etEmail.setText(email);
++        }
++
++        // Xử lý sự kiện khi nhấn nút "Chỉnh sửa thông tin"
++        btnEditProfile.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                startActivity(new Intent(AccountActivity.this, UpdateAccountActivity.class));
++            }
+         });
+-    }
+-}
++
++        // Xử lý sự kiện khi nhấn nút "Đăng xuất"
++        btnLogout.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                // Đăng xuất khỏi Firebase
++                mAuth.signOut();
++
++                // Cập nhật trạng thái đăng xuất trong SharedPreferences
++                SharedPreferences.Editor editor = sharedPreferences.edit();
++                editor.putBoolean(IS_LOGGED_IN, false);
++                editor.apply();
++
++                // Chuyển hướng về màn hình đăng nhập
++                Intent intent = new Intent(AccountActivity.this, Login.class);
++                startActivity(intent);
++                finish(); // Đóng AccountActivity
++            }
++        });
++    }
++}
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_create_saving.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:id=\"@+id/createSaving\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    tools:context=\".createSavingActivity\">\n    <ImageView\n        android:id=\"@+id/imageViewBackToHome\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:src=\"@drawable/baseline_arrow_back_24\"\n        android:contentDescription=\"Back to Home\"\n        android:onClick=\"onBackPressed\"/>\n\n    <TextView\n        android:id=\"@+id/title\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"Thêm mục tiêu\"\n        android:textSize=\"20sp\"\n        android:textStyle=\"bold\"\n        app:layout_constraintTop_toTopOf=\"parent\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        android:layout_marginTop=\"16dp\"/>\n\n    <TextView\n        android:id=\"@+id/labelGoalName\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"Tên mục tiêu\"\n        app:layout_constraintTop_toBottomOf=\"@id/title\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        android:layout_marginTop=\"16dp\"\n        android:layout_marginStart=\"16dp\"/>\n\n    <EditText\n        android:id=\"@+id/editGoalName\"\n        android:layout_width=\"0dp\"\n        android:layout_height=\"wrap_content\"\n        android:hint=\"Nhập tên mục tiêu\"\n        app:layout_constraintTop_toBottomOf=\"@id/title\"\n        app:layout_constraintStart_toEndOf=\"@id/labelGoalName\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        android:layout_marginStart=\"8dp\"\n        android:layout_marginEnd=\"16dp\"\n        android:layout_marginTop=\"16dp\"/>\n\n    <TextView\n        android:id=\"@+id/labelGoalAmount\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"Số tiền mục tiêu\"\n        app:layout_constraintTop_toBottomOf=\"@id/editGoalName\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        android:layout_marginTop=\"16dp\"\n        android:layout_marginStart=\"16dp\"/>\n\n    <EditText\n        android:id=\"@+id/editGoalAmount\"\n        android:layout_width=\"0dp\"\n        android:layout_height=\"wrap_content\"\n        android:hint=\"Nhập số tiền mục tiêu\"\n        android:inputType=\"number\"\n        app:layout_constraintTop_toBottomOf=\"@id/editGoalName\"\n        app:layout_constraintStart_toEndOf=\"@id/labelGoalAmount\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        android:layout_marginStart=\"8dp\"\n        android:layout_marginEnd=\"16dp\"\n        android:layout_marginTop=\"16dp\"/>\n\n    <TextView\n        android:id=\"@+id/labelNotes\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"Ghi chú\"\n        app:layout_constraintTop_toBottomOf=\"@id/editGoalAmount\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        android:layout_marginTop=\"16dp\"\n        android:layout_marginStart=\"16dp\"/>\n\n    <EditText\n        android:id=\"@+id/editNotes\"\n        android:layout_width=\"0dp\"\n        android:layout_height=\"wrap_content\"\n        android:hint=\"Nhập ghi chú\"\n        android:inputType=\"textMultiLine\"\n        android:minLines=\"3\"\n        app:layout_constraintTop_toBottomOf=\"@id/editGoalAmount\"\n        app:layout_constraintStart_toEndOf=\"@id/labelNotes\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        android:layout_marginStart=\"8dp\"\n        android:layout_marginEnd=\"16dp\"\n        android:layout_marginTop=\"16dp\"/>\n\n    <TextView\n        android:id=\"@+id/labelStartDate\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"Ngày khởi đầu\"\n        app:layout_constraintTop_toBottomOf=\"@id/editNotes\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        android:layout_marginTop=\"16dp\"\n        android:layout_marginStart=\"16dp\"/>\n\n    <EditText\n        android:id=\"@+id/editStartDate\"\n        android:layout_width=\"0dp\"\n        android:layout_height=\"wrap_content\"\n        android:hint=\"Chọn ngày khởi đầu\"\n        android:focusable=\"false\"\n        android:clickable=\"true\"\n        app:layout_constraintTop_toBottomOf=\"@id/editNotes\"\n        app:layout_constraintStart_toEndOf=\"@id/labelStartDate\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        android:layout_marginStart=\"8dp\"\n        android:layout_marginEnd=\"16dp\"\n        android:layout_marginTop=\"16dp\"/>\n\n    <TextView\n        android:id=\"@+id/labelEndDate\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"Ngày kết thúc\"\n        app:layout_constraintTop_toBottomOf=\"@id/editStartDate\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        android:layout_marginTop=\"16dp\"\n        android:layout_marginStart=\"16dp\"/>\n\n    <EditText\n        android:id=\"@+id/editEndDate\"\n        android:layout_width=\"0dp\"\n        android:layout_height=\"wrap_content\"\n        android:hint=\"Chọn ngày kết thúc\"\n        android:focusable=\"false\"\n        android:clickable=\"true\"\n        app:layout_constraintTop_toBottomOf=\"@id/editStartDate\"\n        app:layout_constraintStart_toEndOf=\"@id/labelEndDate\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        android:layout_marginStart=\"8dp\"\n        android:layout_marginEnd=\"16dp\"\n        android:layout_marginTop=\"16dp\"/>\n\n    <Button\n        android:id=\"@+id/btnAddGoal\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"Thêm\"\n        app:layout_constraintTop_toBottomOf=\"@id/editEndDate\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        android:layout_marginTop=\"16dp\"\n        android:layout_marginBottom=\"16dp\"/>\n\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_create_saving.xml b/app/src/main/res/layout/activity_create_saving.xml
+--- a/app/src/main/res/layout/activity_create_saving.xml	(revision 919572c7adcfeab0e204138818bd02d803b374a1)
++++ b/app/src/main/res/layout/activity_create_saving.xml	(date 1719374636685)
+@@ -6,13 +6,18 @@
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     tools:context=".createSavingActivity">
++
+     <ImageView
+         android:id="@+id/imageViewBackToHome"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:src="@drawable/baseline_arrow_back_24"
+-        android:contentDescription="Back to Home"
+-        android:onClick="onBackPressed"/>
++        android:contentDescription="Quay lại Trang chủ"
++        android:onClick="onBackPressed"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        android:layout_marginTop="16dp"
++        android:layout_marginStart="16dp"/>
+ 
+     <TextView
+         android:id="@+id/title"
+@@ -41,18 +46,18 @@
+         android:layout_width="0dp"
+         android:layout_height="wrap_content"
+         android:hint="Nhập tên mục tiêu"
+-        app:layout_constraintTop_toBottomOf="@id/title"
+-        app:layout_constraintStart_toEndOf="@id/labelGoalName"
++        app:layout_constraintTop_toBottomOf="@id/labelGoalName"
++        app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+-        android:layout_marginStart="8dp"
++        android:layout_marginStart="16dp"
+         android:layout_marginEnd="16dp"
+-        android:layout_marginTop="16dp"/>
++        android:layout_marginTop="8dp"/>
+ 
+     <TextView
+         android:id="@+id/labelGoalAmount"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+-        android:text="Số tiền mục tiêu"
++        android:text="Số tiền mục tiêu (VND)"
+         app:layout_constraintTop_toBottomOf="@id/editGoalName"
+         app:layout_constraintStart_toStartOf="parent"
+         android:layout_marginTop="16dp"
+@@ -63,13 +68,13 @@
+         android:layout_width="0dp"
+         android:layout_height="wrap_content"
+         android:hint="Nhập số tiền mục tiêu"
+-        android:inputType="number"
+-        app:layout_constraintTop_toBottomOf="@id/editGoalName"
+-        app:layout_constraintStart_toEndOf="@id/labelGoalAmount"
++        android:inputType="numberDecimal"
++        app:layout_constraintTop_toBottomOf="@id/labelGoalAmount"
++        app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+-        android:layout_marginStart="8dp"
++        android:layout_marginStart="16dp"
+         android:layout_marginEnd="16dp"
+-        android:layout_marginTop="16dp"/>
++        android:layout_marginTop="8dp"/>
+ 
+     <TextView
+         android:id="@+id/labelNotes"
+@@ -85,21 +90,21 @@
+         android:id="@+id/editNotes"
+         android:layout_width="0dp"
+         android:layout_height="wrap_content"
+-        android:hint="Nhập ghi chú"
++        android:hint="Nhập ghi chú (nếu có)"
+         android:inputType="textMultiLine"
+         android:minLines="3"
+-        app:layout_constraintTop_toBottomOf="@id/editGoalAmount"
+-        app:layout_constraintStart_toEndOf="@id/labelNotes"
++        app:layout_constraintTop_toBottomOf="@id/labelNotes"
++        app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+-        android:layout_marginStart="8dp"
++        android:layout_marginStart="16dp"
+         android:layout_marginEnd="16dp"
+-        android:layout_marginTop="16dp"/>
++        android:layout_marginTop="8dp"/>
+ 
+     <TextView
+         android:id="@+id/labelStartDate"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+-        android:text="Ngày khởi đầu"
++        android:text="Ngày bắt đầu"
+         app:layout_constraintTop_toBottomOf="@id/editNotes"
+         app:layout_constraintStart_toStartOf="parent"
+         android:layout_marginTop="16dp"
+@@ -109,15 +114,15 @@
+         android:id="@+id/editStartDate"
+         android:layout_width="0dp"
+         android:layout_height="wrap_content"
+-        android:hint="Chọn ngày khởi đầu"
++        android:hint="Chọn ngày bắt đầu"
+         android:focusable="false"
+         android:clickable="true"
+-        app:layout_constraintTop_toBottomOf="@id/editNotes"
+-        app:layout_constraintStart_toEndOf="@id/labelStartDate"
++        app:layout_constraintTop_toBottomOf="@id/labelStartDate"
++        app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+-        android:layout_marginStart="8dp"
++        android:layout_marginStart="16dp"
+         android:layout_marginEnd="16dp"
+-        android:layout_marginTop="16dp"/>
++        android:layout_marginTop="8dp"/>
+ 
+     <TextView
+         android:id="@+id/labelEndDate"
+@@ -136,22 +141,22 @@
+         android:hint="Chọn ngày kết thúc"
+         android:focusable="false"
+         android:clickable="true"
+-        app:layout_constraintTop_toBottomOf="@id/editStartDate"
+-        app:layout_constraintStart_toEndOf="@id/labelEndDate"
++        app:layout_constraintTop_toBottomOf="@id/labelEndDate"
++        app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+-        android:layout_marginStart="8dp"
++        android:layout_marginStart="16dp"
+         android:layout_marginEnd="16dp"
+-        android:layout_marginTop="16dp"/>
++        android:layout_marginTop="8dp"/>
+ 
+     <Button
+         android:id="@+id/btnAddGoal"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+-        android:text="Thêm"
++        android:text="Thêm mục tiêu"
+         app:layout_constraintTop_toBottomOf="@id/editEndDate"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         android:layout_marginTop="16dp"
+         android:layout_marginBottom="16dp"/>
+ 
+-</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
++</androidx.constraintlayout.widget.ConstraintLayout>
+Index: app/src/main/java/com/example/smartwall/UserSessionManager.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/smartwall/UserSessionManager.java b/app/src/main/java/com/example/smartwall/UserSessionManager.java
+new file mode 100644
+--- /dev/null	(date 1719373754618)
++++ b/app/src/main/java/com/example/smartwall/UserSessionManager.java	(date 1719373754618)
+@@ -0,0 +1,66 @@
++package com.example.smartwall;
++
++import android.content.Context;
++import android.content.Intent;
++import android.content.SharedPreferences;
++
++public class UserSessionManager {
++
++    // Chìa khóa SharedPreferences
++    private static final String PREFER_NAME = "UserSessionPref";
++    private static final String IS_USER_LOGIN = "IsUserLoggedIn";
++
++    // Chìa khóa dữ liệu người dùng
++    public static final String KEY_USER_ID = "user_id";
++    public static final String KEY_USER_NAME = "user_name";
++
++    // SharedPreferences và Editor
++    private SharedPreferences pref;
++    private SharedPreferences.Editor editor;
++    private Context context;
++
++    // Constructor
++    public UserSessionManager(Context context) {
++        this.context = context;
++        pref = context.getSharedPreferences(PREFER_NAME, Context.MODE_PRIVATE);
++        editor = pref.edit();
++    }
++
++    // Tạo phiên đăng nhập cho người dùng
++    public void createUserLoginSession(String userId, String userName) {
++        // Lưu thông tin đăng nhập
++        editor.putBoolean(IS_USER_LOGIN, true);
++        editor.putString(KEY_USER_ID, userId);
++        editor.putString(KEY_USER_NAME, userName);
++        // Lưu thay đổi
++        editor.apply();
++    }
++
++    // Kiểm tra trạng thái đăng nhập của người dùng
++    public boolean isLoggedIn() {
++        return pref.getBoolean(IS_USER_LOGIN, false);
++    }
++
++    // Lấy ID người dùng
++    public String getUserId() {
++        return pref.getString(KEY_USER_ID, null);
++    }
++
++    // Lấy tên người dùng
++    public String getUserName() {
++        return pref.getString(KEY_USER_NAME, null);
++    }
++
++    // Xóa phiên đăng nhập của người dùng
++    public void logoutUser() {
++        // Xóa tất cả dữ liệu từ SharedPreferences
++        editor.clear();
++        editor.apply();
++
++        // Chuyển hướng người dùng đến màn hình đăng nhập
++        Intent intent = new Intent(context, Login.class);
++        // Đóng tất cả các activity khác và bắt đầu activity đăng nhập mới
++        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
++        context.startActivity(intent);
++    }
++}
+Index: app/src/main/java/com/example/smartwall/model/User.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/smartwall/model/User.java b/app/src/main/java/com/example/smartwall/model/User.java
+new file mode 100644
+--- /dev/null	(date 1719383348904)
++++ b/app/src/main/java/com/example/smartwall/model/User.java	(date 1719383348904)
+@@ -0,0 +1,27 @@
++package com.example.smartwall.model;
++
++public class User {
++
++    private String fullName;
++    private String email;
++
++    public User(String fullName, String email) {
++        // Default constructor required for calls to DataSnapshot.getValue(User.class)
++    }
++
++    public User(String fullName, String email, String birthdate) {
++        this.fullName = fullName;
++        this.email = email;
++
++    }
++
++    public String getFullName() {
++        return fullName;
++    }
++
++    public String getEmail() {
++        return email;
++    }
++
++
++}
+\ No newline at end of file
+Index: app/src/main/java/com/example/smartwall/UpdateAccountActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/smartwall/UpdateAccountActivity.java b/app/src/main/java/com/example/smartwall/UpdateAccountActivity.java
+new file mode 100644
+--- /dev/null	(date 1719411381660)
++++ b/app/src/main/java/com/example/smartwall/UpdateAccountActivity.java	(date 1719411381660)
+@@ -0,0 +1,133 @@
++package com.example.smartwall;
++
++import android.content.Intent;
++import android.os.Bundle;
++import android.view.View;
++import android.widget.Button;
++import android.widget.EditText;
++import android.widget.Toast;
++
++import androidx.annotation.NonNull;
++import androidx.appcompat.app.AppCompatActivity;
++
++import com.example.smartwall.model.User;
++import com.google.android.gms.tasks.OnCompleteListener;
++import com.google.android.gms.tasks.Task;
++import com.google.firebase.auth.FirebaseAuth;
++import com.google.firebase.auth.FirebaseUser;
++import com.google.firebase.database.DatabaseReference;
++import com.google.firebase.database.FirebaseDatabase;
++
++public class UpdateAccountActivity extends AppCompatActivity {
++
++    private EditText etFullName, etEmail, etNewPassword;
++    private Button btnSave, btnCancel;
++    private FirebaseAuth mAuth;
++    private DatabaseReference mDatabase;
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.updateacount);
++
++        // Khởi tạo Firebase Authentication và Firebase Database
++        mAuth = FirebaseAuth.getInstance();
++        mDatabase = FirebaseDatabase.getInstance().getReference("users");
++
++        // Ánh xạ các view từ layout
++        etFullName = findViewById(R.id.etFullName);
++        etEmail = findViewById(R.id.etEmail);
++        etNewPassword = findViewById(R.id.etNewPassword);
++        btnSave = findViewById(R.id.btnSave);
++        btnCancel = findViewById(R.id.btnCancel);
++
++        // Load dữ liệu người dùng hiện tại nếu có
++        FirebaseUser currentUser = mAuth.getCurrentUser();
++        if (currentUser != null) {
++            String fullName = currentUser.getDisplayName();
++            String email = currentUser.getEmail();
++
++            etFullName.setText(fullName);
++            etEmail.setText(email);
++        }
++
++        // Xử lý sự kiện khi nhấn nút "Lưu thông tin"
++        btnSave.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                saveUserData();
++            }
++        });
++
++        // Xử lý sự kiện khi nhấn nút "Hủy"
++        btnCancel.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                finish(); // Quay trở lại activity trước đó
++            }
++        });
++    }
++
++    // Phương thức lưu thông tin người dùng
++    private void saveUserData() {
++        FirebaseUser currentUser = mAuth.getCurrentUser();
++        if (currentUser != null) {
++            // Lấy thông tin từ các EditText
++            String fullName = etFullName.getText().toString().trim();
++            String email = etEmail.getText().toString().trim();
++            String newPassword = etNewPassword.getText().toString().trim();
++
++            // Cập nhật thông tin người dùng trong Firebase Authentication
++            updateFirebaseAuth(currentUser, email, newPassword);
++
++            // Cập nhật thông tin người dùng trong Firebase Realtime Database
++            updateFirebaseDatabase(currentUser.getUid(), fullName, email);
++
++            // Hiển thị thông báo và chuyển hướng về AccountActivity sau khi cập nhật thành công
++            Toast.makeText(UpdateAccountActivity.this, "Thông tin đã được cập nhật", Toast.LENGTH_SHORT).show();
++            Intent intent = new Intent(UpdateAccountActivity.this, AccountActivity.class);
++            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
++            startActivity(intent);
++            finish();
++        }
++    }
++
++    // Phương thức cập nhật thông tin trong Firebase Authentication
++    private void updateFirebaseAuth(FirebaseUser user, String email, String newPassword) {
++        if (!user.getEmail().equals(email)) {
++            user.updateEmail(email)
++                    .addOnCompleteListener(new OnCompleteListener<Void>() {
++                        @Override
++                        public void onComplete(@NonNull Task<Void> task) {
++                            if (task.isSuccessful()) {
++                                // Email updated successfully
++                            } else {
++                                // Failed to update email
++                                Toast.makeText(UpdateAccountActivity.this, "Cập nhật email thất bại", Toast.LENGTH_SHORT).show();
++                            }
++                        }
++                    });
++        }
++
++        if (!newPassword.isEmpty()) {
++            user.updatePassword(newPassword)
++                    .addOnCompleteListener(new OnCompleteListener<Void>() {
++                        @Override
++                        public void onComplete(@NonNull Task<Void> task) {
++                            if (task.isSuccessful()) {
++                                // Password updated successfully
++                            } else {
++                                // Failed to update password
++                                Toast.makeText(UpdateAccountActivity.this, "Cập nhật mật khẩu thất bại", Toast.LENGTH_SHORT).show();
++                            }
++                        }
++                    });
++        }
++    }
++
++    // Phương thức cập nhật thông tin trong Firebase Realtime Database
++    private void updateFirebaseDatabase(String userId, String fullName, String email) {
++        User user = new User(fullName, email);
++        mDatabase.child(userId).setValue(user);
++    }
++}
+Index: .idea/deploymentTargetDropDown.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"deploymentTargetDropDown\">\n    <value>\n      <entry key=\"app\">\n        <State />\n      </entry>\n    </value>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/deploymentTargetDropDown.xml b/.idea/deploymentTargetDropDown.xml
+--- a/.idea/deploymentTargetDropDown.xml	(revision 919572c7adcfeab0e204138818bd02d803b374a1)
++++ b/.idea/deploymentTargetDropDown.xml	(date 1719373754633)
+@@ -2,7 +2,10 @@
+ <project version="4">
+   <component name="deploymentTargetDropDown">
+     <value>
+-      <entry key="app">
++      <entry key="Login">
++        <State />
++      </entry>
++      <entry key="MainActivity">
+         <State />
+       </entry>
+     </value>
+Index: app/src/main/java/com/example/smartwall/RevenueActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/smartwall/RevenueActivity.java b/app/src/main/java/com/example/smartwall/IncomeActivity.java
+rename from app/src/main/java/com/example/smartwall/RevenueActivity.java
+rename to app/src/main/java/com/example/smartwall/IncomeActivity.java
+--- a/app/src/main/java/com/example/smartwall/RevenueActivity.java	(revision 919572c7adcfeab0e204138818bd02d803b374a1)
++++ b/app/src/main/java/com/example/smartwall/IncomeActivity.java	(date 1719373754580)
+@@ -20,7 +20,7 @@
+ import com.google.firebase.database.DatabaseReference;
+ import com.google.firebase.database.FirebaseDatabase;
+ 
+-public class RevenueActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
++public class IncomeActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+ 
+     private EditText editTextTitle, editTextTotal;
+     private Spinner spinnerCategories;
+@@ -34,7 +34,7 @@
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+-        setContentView(R.layout.add_evenue);
++        setContentView(R.layout.add_income);
+ 
+         // Initialize Firebase Database
+         databaseIncome = FirebaseDatabase.getInstance().getReference("income");
+@@ -73,7 +73,7 @@
+         imageViewBack.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+-                finish(); // Đóng RevenueActivity và quay lại MainActivity
++                finish(); // Đóng IncomeActivity và quay lại MainActivity
+             }
+         });
+     }
+@@ -95,7 +95,7 @@
+             @Override
+             public void onComplete(@NonNull Task<Void> task) {
+                 if (task.isSuccessful()) {
+-                    Toast.makeText(RevenueActivity.this, "Khoản thu đã được thêm", Toast.LENGTH_SHORT).show();
++                    Toast.makeText(IncomeActivity.this, "Khoản thu đã được thêm", Toast.LENGTH_SHORT).show();
+                     // Reset fields
+                     editTextTitle.setText("");
+                     editTextTotal.setText("");
+@@ -108,7 +108,7 @@
+                     setResult(RESULT_OK, intent);
+                     finish();
+                 } else {
+-                    Toast.makeText(RevenueActivity.this, "Thêm khoản thu thất bại", Toast.LENGTH_SHORT).show();
++                    Toast.makeText(IncomeActivity.this, "Thêm khoản thu thất bại", Toast.LENGTH_SHORT).show();
+                 }
+             }
+         });
+Index: app/src/main/java/com/example/smartwall/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.smartwall;\n\nimport android.content.Intent;\nimport android.os.Bundle;\nimport android.util.Log;\nimport android.view.Menu;\nimport android.view.MenuItem;\nimport android.view.View;\nimport android.widget.AdapterView;\nimport android.widget.Button;\nimport android.widget.ListView;\nimport android.widget.TextView;\nimport android.widget.Toast;\n\nimport androidx.annotation.NonNull;\nimport androidx.appcompat.app.AppCompatActivity;\n\nimport com.example.smartwall.model.Expenses;\nimport com.google.android.material.bottomnavigation.BottomNavigationView;\nimport com.google.firebase.database.DataSnapshot;\nimport com.google.firebase.database.DatabaseError;\nimport com.google.firebase.database.DatabaseReference;\nimport com.google.firebase.database.FirebaseDatabase;\nimport com.google.firebase.database.ValueEventListener;\n\nimport java.util.ArrayList;\n\npublic class MainActivity extends AppCompatActivity {\n\n    private static final String TAG = \"MainActivity\";\n\n    private Button btnAddIncome, btnAddExpense;\n    private ListView listViewIncome, listViewExpense;\n    private TextView totalIncomeTextView, totalExpenseTextView;\n\n    private IncomeAdapter incomeAdapter;\n    private ExpenseAdapter expenseAdapter;\n    private ArrayList<Expenses> incomeList;\n    private ArrayList<Expenses> expenseList;\n\n    private DatabaseReference databaseReference;\n\n    private int totalIncome = 0;\n    private int totalExpense = 0;\n\n    @Override\n    protected void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        setContentView(R.layout.home);\n\n        // Initialize views\n        btnAddIncome = findViewById(R.id.btnAddIncome);\n        btnAddExpense = findViewById(R.id.btnAddExpense);\n        listViewIncome = findViewById(R.id.listViewIncome);\n        listViewExpense = findViewById(R.id.listViewExpense);\n        totalIncomeTextView = findViewById(R.id.totalIncomeTextView);\n        totalExpenseTextView = findViewById(R.id.totalExpenseTextView);\n\n        // Initialize lists and adapters for income and expense\n        incomeList = new ArrayList<>();\n        expenseList = new ArrayList<>();\n        incomeAdapter = new IncomeAdapter(this, incomeList);\n        expenseAdapter = new ExpenseAdapter(this, expenseList);\n\n        // Set adapters for ListViews\n        listViewIncome.setAdapter(incomeAdapter);\n        listViewExpense.setAdapter(expenseAdapter);\n\n        // Reference to Firebase Realtime Database\n        databaseReference = FirebaseDatabase.getInstance().getReference();\n\n        // Fetch income data from Firebase\n        databaseReference.child(\"income\").addValueEventListener(new ValueEventListener() {\n            @Override\n            public void onDataChange(@NonNull DataSnapshot snapshot) {\n                incomeList.clear();\n                totalIncome = 0;\n                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {\n                    Expenses income = dataSnapshot.getValue(Expenses.class);\n                    if (income != null) {\n                        try {\n                            int incomeTotal = Integer.parseInt(income.getTotal());\n                            incomeList.add(income);\n                            totalIncome += incomeTotal;\n                        } catch (NumberFormatException e) {\n                            Log.e(TAG, \"Error parsing income total: \" + income.getTotal(), e);\n                        }\n                    }\n                }\n                totalIncomeTextView.setText(String.format(\"+ %,d VND\", totalIncome));\n                incomeAdapter.notifyDataSetChanged();\n            }\n\n            @Override\n            public void onCancelled(@NonNull DatabaseError error) {\n                Toast.makeText(MainActivity.this, \"Error fetching income data!\", Toast.LENGTH_SHORT).show();\n            }\n        });\n\n        // Fetch expense data from Firebase\n        databaseReference.child(\"expenses\").addValueEventListener(new ValueEventListener() {\n            @Override\n            public void onDataChange(@NonNull DataSnapshot snapshot) {\n                expenseList.clear();\n                totalExpense = 0;\n                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {\n                    Expenses expense = dataSnapshot.getValue(Expenses.class);\n                    if (expense != null) {\n                        try {\n                            int expenseTotal = Integer.parseInt(expense.getTotal());\n                            expenseList.add(expense);\n                            totalExpense += expenseTotal;\n                        } catch (NumberFormatException e) {\n                            Log.e(TAG, \"Error parsing expense total: \" + expense.getTotal(), e);\n                        }\n                    }\n                }\n                totalExpenseTextView.setText(String.format(\"- %,d VND\", totalExpense));\n                expenseAdapter.notifyDataSetChanged();\n            }\n\n            @Override\n            public void onCancelled(@NonNull DatabaseError error) {\n                Toast.makeText(MainActivity.this, \"Error fetching expense data!\", Toast.LENGTH_SHORT).show();\n            }\n        });\n\n        // Handle \"Add Income\" button click\n        btnAddIncome.setOnClickListener(new View.OnClickListener() {\n            @Override\n            public void onClick(View v) {\n                Intent intent = new Intent(MainActivity.this, RevenueActivity.class);\n                startActivity(intent);\n            }\n        });\n\n        // Handle \"Add Expense\" button click\n        btnAddExpense.setOnClickListener(new View.OnClickListener() {\n            @Override\n            public void onClick(View v) {\n                Intent intent = new Intent(MainActivity.this, ExpensesActivity.class);\n                startActivity(intent);\n            }\n        });\n\n        // Set onItemClickListener for income ListView\n        listViewIncome.setOnItemClickListener(new AdapterView.OnItemClickListener() {\n            @Override\n            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {\n                Expenses selectedIncome = incomeList.get(position);\n                navigateToTransactionDetails(selectedIncome, \"income\");\n            }\n        });\n\n        // Set onItemClickListener for expense ListView\n        listViewExpense.setOnItemClickListener(new AdapterView.OnItemClickListener() {\n            @Override\n            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {\n                Expenses selectedExpense = expenseList.get(position);\n                navigateToTransactionDetails(selectedExpense, \"expenses\");\n            }\n        });\n\n        // Initialize and set listener for BottomNavigationView\n        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);\n        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {\n            @Override\n            public boolean onNavigationItemSelected(@NonNull MenuItem item) {\n                int id = item.getItemId();\n                if (id == R.id.home) {\n                    Log.d(TAG, \"Selected menu item: Home\");\n                    // Already in MainActivity, no need to navigate\n                    return true;\n                } else if (id == R.id.wallet) {\n                    Log.d(TAG, \"Selected menu item: Wallet\");\n                    Intent intentWallet = new Intent(MainActivity.this, SavingsActivity.class);\n                    startActivity(intentWallet);\n                    return true;\n                } else if (id == R.id.budget) {\n                    Log.d(TAG, \"Selected menu item: Budget\");\n                    // Navigate to LogActivity (Lịch sử)\n                    Intent intentLog = new Intent(MainActivity.this, LogActivity.class);\n                    startActivity(intentLog);\n                    return true;\n                } else if (id == R.id.user) {\n                    Log.d(TAG, \"Selected menu item: User\");\n                    // Handle navigation to account page (if applicable)\n                    // Example: Navigate to AccountActivity\n                    Intent intentUser = new Intent(MainActivity.this, AccountActivity.class);\n                    startActivity(intentUser);\n                    return true;\n                }\n                return false;\n            }\n        });\n    }\n\n    private void navigateToTransactionDetails(Expenses transaction, String transactionType) {\n        Intent intent = new Intent(MainActivity.this, TransactionDetailsActivity.class);\n        intent.putExtra(\"transactionType\", transactionType);\n        intent.putExtra(\"transactionId\", transaction.getId());\n        startActivity(intent);\n    }\n\n    @Override\n    public boolean onCreateOptionsMenu(Menu menu) {\n        getMenuInflater().inflate(R.menu.bottmmenu, menu);\n        return true;\n    }\n\n    @Override\n    public boolean onOptionsItemSelected(MenuItem item) {\n        int id = item.getItemId();\n        if (id == R.id.home) {\n            Log.d(\"MainActivity\", \"Selected menu item: Home\");\n            // Already in MainActivity, no need to navigate\n            return true;\n        } else if (id == R.id.wallet) {\n            Log.d(\"MainActivity\", \"Selected menu item: Wallet\");\n            Intent intentWallet = new Intent(MainActivity.this, SavingsActivity.class);\n            startActivity(intentWallet);\n            return true;\n        } else if (id == R.id.budget) {\n            Log.d(\"MainActivity\", \"Selected menu item: Budget\");\n            // Navigate to LogActivity (Lịch sử)\n            Intent intentLog = new Intent(MainActivity.this, LogActivity.class);\n            startActivity(intentLog);\n            return true;\n        } else if (id == R.id.user) {\n            Log.d(\"MainActivity\", \"Selected menu item: User\");\n            // Handle navigation to account page (if applicable)\n            // Example: Navigate to AccountActivity\n            Intent intentUser = new Intent(MainActivity.this, AccountActivity.class);\n            startActivity(intentUser);\n            return true;\n        }\n        return super.onOptionsItemSelected(item);\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/smartwall/MainActivity.java b/app/src/main/java/com/example/smartwall/MainActivity.java
+--- a/app/src/main/java/com/example/smartwall/MainActivity.java	(revision 919572c7adcfeab0e204138818bd02d803b374a1)
++++ b/app/src/main/java/com/example/smartwall/MainActivity.java	(date 1719381404966)
+@@ -48,7 +48,7 @@
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.home);
+ 
+-        // Initialize views
++        // Khởi tạo các view
+         btnAddIncome = findViewById(R.id.btnAddIncome);
+         btnAddExpense = findViewById(R.id.btnAddExpense);
+         listViewIncome = findViewById(R.id.listViewIncome);
+@@ -56,20 +56,20 @@
+         totalIncomeTextView = findViewById(R.id.totalIncomeTextView);
+         totalExpenseTextView = findViewById(R.id.totalExpenseTextView);
+ 
+-        // Initialize lists and adapters for income and expense
++        // Khởi tạo danh sách và adapter cho thu nhập và chi phí
+         incomeList = new ArrayList<>();
+         expenseList = new ArrayList<>();
+         incomeAdapter = new IncomeAdapter(this, incomeList);
+         expenseAdapter = new ExpenseAdapter(this, expenseList);
+ 
+-        // Set adapters for ListViews
++        // Đặt adapter cho ListViews
+         listViewIncome.setAdapter(incomeAdapter);
+         listViewExpense.setAdapter(expenseAdapter);
+ 
+-        // Reference to Firebase Realtime Database
++        // Tham chiếu tới Firebase Realtime Database
+         databaseReference = FirebaseDatabase.getInstance().getReference();
+ 
+-        // Fetch income data from Firebase
++        // Lấy dữ liệu thu nhập từ Firebase
+         databaseReference.child("income").addValueEventListener(new ValueEventListener() {
+             @Override
+             public void onDataChange(@NonNull DataSnapshot snapshot) {
+@@ -93,11 +93,11 @@
+ 
+             @Override
+             public void onCancelled(@NonNull DatabaseError error) {
+-                Toast.makeText(MainActivity.this, "Error fetching income data!", Toast.LENGTH_SHORT).show();
++                Toast.makeText(MainActivity.this, "Lỗi khi lấy dữ liệu thu nhập!", Toast.LENGTH_SHORT).show();
+             }
+         });
+ 
+-        // Fetch expense data from Firebase
++        // Lấy dữ liệu chi phí từ Firebase
+         databaseReference.child("expenses").addValueEventListener(new ValueEventListener() {
+             @Override
+             public void onDataChange(@NonNull DataSnapshot snapshot) {
+@@ -121,20 +121,20 @@
+ 
+             @Override
+             public void onCancelled(@NonNull DatabaseError error) {
+-                Toast.makeText(MainActivity.this, "Error fetching expense data!", Toast.LENGTH_SHORT).show();
++                Toast.makeText(MainActivity.this, "Lỗi khi lấy dữ liệu chi phí!", Toast.LENGTH_SHORT).show();
+             }
+         });
+ 
+-        // Handle "Add Income" button click
++        // Xử lý sự kiện nhấn nút "Thêm Thu Nhập"
+         btnAddIncome.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+-                Intent intent = new Intent(MainActivity.this, RevenueActivity.class);
++                Intent intent = new Intent(MainActivity.this, IncomeActivity.class);
+                 startActivity(intent);
+             }
+         });
+ 
+-        // Handle "Add Expense" button click
++        // Xử lý sự kiện nhấn nút "Thêm Chi Phí"
+         btnAddExpense.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+@@ -143,7 +143,7 @@
+             }
+         });
+ 
+-        // Set onItemClickListener for income ListView
++        // Thiết lập sự kiện nhấn cho ListView thu nhập
+         listViewIncome.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+             @Override
+             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+@@ -152,7 +152,7 @@
+             }
+         });
+ 
+-        // Set onItemClickListener for expense ListView
++        // Thiết lập sự kiện nhấn cho ListView chi phí
+         listViewExpense.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+             @Override
+             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+@@ -161,7 +161,7 @@
+             }
+         });
+ 
+-        // Initialize and set listener for BottomNavigationView
++        // Khởi tạo và thiết lập sự kiện nhấn cho BottomNavigationView
+         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+             @Override
+@@ -169,7 +169,7 @@
+                 int id = item.getItemId();
+                 if (id == R.id.home) {
+                     Log.d(TAG, "Selected menu item: Home");
+-                    // Already in MainActivity, no need to navigate
++                    // Đang ở MainActivity, không cần điều hướng
+                     return true;
+                 } else if (id == R.id.wallet) {
+                     Log.d(TAG, "Selected menu item: Wallet");
+@@ -178,14 +178,11 @@
+                     return true;
+                 } else if (id == R.id.budget) {
+                     Log.d(TAG, "Selected menu item: Budget");
+-                    // Navigate to LogActivity (Lịch sử)
+                     Intent intentLog = new Intent(MainActivity.this, LogActivity.class);
+                     startActivity(intentLog);
+                     return true;
+                 } else if (id == R.id.user) {
+                     Log.d(TAG, "Selected menu item: User");
+-                    // Handle navigation to account page (if applicable)
+-                    // Example: Navigate to AccountActivity
+                     Intent intentUser = new Intent(MainActivity.this, AccountActivity.class);
+                     startActivity(intentUser);
+                     return true;
+@@ -195,6 +192,7 @@
+         });
+     }
+ 
++    // Phương thức điều hướng đến chi tiết giao dịch
+     private void navigateToTransactionDetails(Expenses transaction, String transactionType) {
+         Intent intent = new Intent(MainActivity.this, TransactionDetailsActivity.class);
+         intent.putExtra("transactionType", transactionType);
+@@ -213,7 +211,7 @@
+         int id = item.getItemId();
+         if (id == R.id.home) {
+             Log.d("MainActivity", "Selected menu item: Home");
+-            // Already in MainActivity, no need to navigate
++            // Đang ở MainActivity, không cần điều hướng
+             return true;
+         } else if (id == R.id.wallet) {
+             Log.d("MainActivity", "Selected menu item: Wallet");
+@@ -222,14 +220,11 @@
+             return true;
+         } else if (id == R.id.budget) {
+             Log.d("MainActivity", "Selected menu item: Budget");
+-            // Navigate to LogActivity (Lịch sử)
+             Intent intentLog = new Intent(MainActivity.this, LogActivity.class);
+             startActivity(intentLog);
+             return true;
+         } else if (id == R.id.user) {
+             Log.d("MainActivity", "Selected menu item: User");
+-            // Handle navigation to account page (if applicable)
+-            // Example: Navigate to AccountActivity
+             Intent intentUser = new Intent(MainActivity.this, AccountActivity.class);
+             startActivity(intentUser);
+             return true;
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:tools=\"http://schemas.android.com/tools\">\n\n    <application\n        android:allowBackup=\"true\"\n        android:dataExtractionRules=\"@xml/data_extraction_rules\"\n        android:fullBackupContent=\"@xml/backup_rules\"\n        android:icon=\"@mipmap/ic_launcher\"\n        android:label=\"@string/app_name\"\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\n        android:supportsRtl=\"true\"\n        android:theme=\"@style/Theme.SmartWall\"\n        tools:targetApi=\"31\">\n        <activity\n            android:name=\".GoalsDetailActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".createSavingActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".Saving\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".SavingsActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".AccountActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".LogRevenue\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".LogExpenses\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".EditTransactionActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".TransactionDetailsActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".RevenueActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".ResetPWActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".MainActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".ExpensesActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".LogActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".Login\"\n            android:exported=\"true\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.MAIN\" />\n\n                <category android:name=\"android.intent.category.LAUNCHER\" />\n            </intent-filter>\n        </activity>\n        <activity android:name=\".Register\" />\n    </application>\n\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	(revision 919572c7adcfeab0e204138818bd02d803b374a1)
++++ b/app/src/main/AndroidManifest.xml	(date 1719373924684)
+@@ -19,7 +19,7 @@
+             android:name=".createSavingActivity"
+             android:exported="false" />
+         <activity
+-            android:name=".Saving"
++            android:name=".UpdateAccountActivity"
+             android:exported="false" />
+         <activity
+             android:name=".SavingsActivity"
+@@ -40,7 +40,7 @@
+             android:name=".TransactionDetailsActivity"
+             android:exported="false" />
+         <activity
+-            android:name=".RevenueActivity"
++            android:name=".IncomeActivity"
+             android:exported="false" />
+         <activity
+             android:name=".ResetPWActivity"
+@@ -59,11 +59,9 @@
+             android:exported="true">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+-
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
+         </activity>
+         <activity android:name=".Register" />
+     </application>
+-
+ </manifest>
+\ No newline at end of file
+Index: app/src/main/java/com/example/smartwall/Register.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.smartwall;\n\nimport android.content.Intent;\nimport android.os.Bundle;\nimport android.text.TextUtils;\nimport android.util.Patterns;\nimport android.view.View;\nimport android.view.inputmethod.InputMethodManager;\nimport android.widget.Button;\nimport android.widget.EditText;\nimport android.widget.ProgressBar;\nimport android.widget.Toast;\n\nimport androidx.annotation.NonNull;\nimport androidx.appcompat.app.AppCompatActivity;\n\nimport com.google.android.gms.tasks.OnCompleteListener;\nimport com.google.android.gms.tasks.Task;\nimport com.google.firebase.auth.AuthResult;\nimport com.google.firebase.auth.FirebaseAuth;\n\npublic class Register extends AppCompatActivity {\n\n    private EditText edtEmail, edtPass, edtConfirmPass, edtFullName;\n    private Button btnRegister;\n    private ProgressBar progressBar;\n    private FirebaseAuth fbAuth;\n\n    @Override\n    protected void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        setContentView(R.layout.register);\n\n        fbAuth = FirebaseAuth.getInstance();\n\n        // Ánh xạ các view từ layout\n        edtFullName = findViewById(R.id.edtFullName);\n        edtEmail = findViewById(R.id.edtEmailRegister);\n        edtPass = findViewById(R.id.edtPasswordRegister);\n        edtConfirmPass = findViewById(R.id.edtConfirmPassword);\n        btnRegister = findViewById(R.id.BtnRegister);\n        progressBar = findViewById(R.id.progressBar);\n\n        btnRegister.setOnClickListener(new View.OnClickListener() {\n            @Override\n            public void onClick(View view) {\n                hideKeyboard(); // Ẩn bàn phím khi nhấn nút Đăng ký\n\n                // Lấy thông tin từ các EditText\n                String fullName = edtFullName.getText().toString().trim();\n                String email = edtEmail.getText().toString().trim();\n                String pass = edtPass.getText().toString().trim();\n                String confirmPass = edtConfirmPass.getText().toString().trim();\n\n                // Kiểm tra các trường nhập liệu\n                if (TextUtils.isEmpty(fullName)) {\n                    edtFullName.setError(\"Vui lòng nhập tên đầy đủ của bạn!\");\n                    return;\n                }\n                if (TextUtils.isEmpty(email)) {\n                    edtEmail.setError(\"Vui lòng nhập email!\");\n                    return;\n                }\n                if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {\n                    edtEmail.setError(\"Email không hợp lệ!\");\n                    return;\n                }\n                if (TextUtils.isEmpty(pass)) {\n                    edtPass.setError(\"Vui lòng nhập mật khẩu!\");\n                    return;\n                }\n                if (pass.length() < 6) {\n                    edtPass.setError(\"Mật khẩu phải có ít nhất 6 ký tự!\");\n                    return;\n                }\n                if (TextUtils.isEmpty(confirmPass)) {\n                    edtConfirmPass.setError(\"Vui lòng nhập lại mật khẩu!\");\n                    return;\n                }\n                if (!pass.equals(confirmPass)) {\n                    edtConfirmPass.setError(\"Mật khẩu xác nhận không khớp!\");\n                    return;\n                }\n\n                progressBar.setVisibility(View.VISIBLE); // Hiển thị ProgressBar\n\n                // Đăng ký người dùng vào Firebase Authentication\n                fbAuth.createUserWithEmailAndPassword(email, pass)\n                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {\n                            @Override\n                            public void onComplete(@NonNull Task<AuthResult> task) {\n                                progressBar.setVisibility(View.GONE); // Ẩn ProgressBar khi xử lý xong\n\n                                if (task.isSuccessful()) {\n                                    Toast.makeText(Register.this, \"Đăng ký thành công!\", Toast.LENGTH_SHORT).show();\n                                    startActivity(new Intent(Register.this, Login.class));\n                                    finish();\n                                } else {\n                                    Toast.makeText(Register.this, \"Đăng ký không thành công. Vui lòng thử lại!\", Toast.LENGTH_SHORT).show();\n                                }\n                            }\n                        });\n            }\n        });\n    }\n\n    // Phương thức để ẩn bàn phím khi không cần thiết\n    private void hideKeyboard() {\n        View view = this.getCurrentFocus();\n        if (view != null) {\n            InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);\n            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);\n        }\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/smartwall/Register.java b/app/src/main/java/com/example/smartwall/Register.java
+--- a/app/src/main/java/com/example/smartwall/Register.java	(revision 919572c7adcfeab0e204138818bd02d803b374a1)
++++ b/app/src/main/java/com/example/smartwall/Register.java	(date 1719373705514)
+@@ -14,24 +14,30 @@
+ import androidx.annotation.NonNull;
+ import androidx.appcompat.app.AppCompatActivity;
+ 
++import com.example.smartwall.model.User;
+ import com.google.android.gms.tasks.OnCompleteListener;
+ import com.google.android.gms.tasks.Task;
+ import com.google.firebase.auth.AuthResult;
+ import com.google.firebase.auth.FirebaseAuth;
++import com.google.firebase.auth.FirebaseUser;
++import com.google.firebase.database.DatabaseReference;
++import com.google.firebase.database.FirebaseDatabase;
+ 
+ public class Register extends AppCompatActivity {
+ 
+-    private EditText edtEmail, edtPass, edtConfirmPass, edtFullName;
++    private EditText edtFullName, edtEmail, edtPass, edtConfirmPass;
+     private Button btnRegister;
+     private ProgressBar progressBar;
+     private FirebaseAuth fbAuth;
++    private DatabaseReference databaseReference;
+ 
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.register);
+ 
+-        fbAuth = FirebaseAuth.getInstance();
++        fbAuth = FirebaseAuth.getInstance(); // Khởi tạo Firebase Auth
++        databaseReference = FirebaseDatabase.getInstance().getReference("users"); // Tham chiếu tới "users" trong Firebase Database
+ 
+         // Ánh xạ các view từ layout
+         edtFullName = findViewById(R.id.edtFullName);
+@@ -92,10 +98,18 @@
+                                 progressBar.setVisibility(View.GONE); // Ẩn ProgressBar khi xử lý xong
+ 
+                                 if (task.isSuccessful()) {
++                                    // Đăng ký thành công, lưu thông tin người dùng vào Firebase Realtime Database
++                                    FirebaseUser user = fbAuth.getCurrentUser();
++                                    if (user != null) {
++                                        String userId = user.getUid();
++                                        User newUser = new User(fullName, email);
++                                        databaseReference.child(userId).setValue(newUser);
++                                    }
+                                     Toast.makeText(Register.this, "Đăng ký thành công!", Toast.LENGTH_SHORT).show();
+                                     startActivity(new Intent(Register.this, Login.class));
+                                     finish();
+                                 } else {
++                                    // Đăng ký không thành công, thông báo lỗi
+                                     Toast.makeText(Register.this, "Đăng ký không thành công. Vui lòng thử lại!", Toast.LENGTH_SHORT).show();
+                                 }
+                             }
+Index: app/build.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\n    alias(libs.plugins.androidApplication)\n    id(\"com.google.gms.google-services\")\n}\n\nandroid {\n    namespace = \"com.example.smartwall\"\n    compileSdk = 34\n\n    defaultConfig {\n        applicationId = \"com.example.smartwall\"\n        minSdk = 24\n        targetSdk = 34\n        versionCode = 1\n        versionName = \"1.0\"\n\n        testInstrumentationRunner = \"androidx.test.runner.AndroidJUnitRunner\"\n    }\n\n    buildTypes {\n        release {\n            isMinifyEnabled = false\n            proguardFiles(\n                getDefaultProguardFile(\"proguard-android-optimize.txt\"),\n                \"proguard-rules.pro\"\n            )\n        }\n    }\n    compileOptions {\n        sourceCompatibility = JavaVersion.VERSION_1_8\n        targetCompatibility = JavaVersion.VERSION_1_8\n    }\n}\n\ndependencies {\n\n    implementation(libs.appcompat)\n    implementation(libs.material)\n    implementation(libs.activity)\n    implementation(libs.constraintlayout)\n    implementation(libs.cardview)\n    implementation(libs.play.services.tasks)\n    implementation(libs.firebase.auth)\n    implementation(libs.firebase.database)\n    testImplementation(libs.junit)\n    androidTestImplementation(libs.ext.junit)\n    androidTestImplementation(libs.espresso.core)\n\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/build.gradle.kts b/app/build.gradle.kts
+--- a/app/build.gradle.kts	(revision 919572c7adcfeab0e204138818bd02d803b374a1)
++++ b/app/build.gradle.kts	(date 1719381404972)
+@@ -30,6 +30,7 @@
+         sourceCompatibility = JavaVersion.VERSION_1_8
+         targetCompatibility = JavaVersion.VERSION_1_8
+     }
++    buildToolsVersion = "30.0.3"
+ }
+ 
+ dependencies {
+diff --git a/app/src/main/res/layout/add_evenue.xml b/app/src/main/res/layout/add_income.xml
+rename from app/src/main/res/layout/add_evenue.xml
+rename to app/src/main/res/layout/add_income.xml

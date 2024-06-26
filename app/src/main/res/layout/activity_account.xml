@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".AccountActivity">
-    <!-- Header với nền wave_shape -->
+
+    <!-- Phần header với nền dạng sóng và tiêu đề -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,15 +19,15 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:paddingTop="50dp"
-            android:singleLine="false"
             android:text="Thông Tin Cá Nhân"
             android:textColor="#000000"
             android:textSize="34sp"
             android:textStyle="bold" />
     </LinearLayout>
 
+    <!-- ScrollView chứa các thông tin chi tiết -->
     <ScrollView
-        android:id="@+id/Account"
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -39,8 +38,9 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <!-- Tên đầy đủ -->
             <TextView
-                android:id="@+id/tvFullNameLabel"
+                android:id="@+id/tvFullName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
@@ -48,17 +48,18 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tvFullName"
+            <EditText
+                android:id="@+id/etFullName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/edittext_background"
                 android:padding="10dp"
-                android:text="Nguyễn Văn A"
                 android:textColor="#000000"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:enabled="false" />
 
+            <!-- Email -->
             <TextView
                 android:id="@+id/tvEmailLabel"
                 android:layout_width="match_parent"
@@ -68,96 +69,16 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tvEmail"
+            <EditText
+                android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/edittext_background"
                 android:padding="10dp"
-                android:text="nguyenvana@gmail.com"
                 android:textColor="#000000"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/tvAgeLabel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Tuổi"
                 android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvAge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/edittext_background"
-                android:padding="10dp"
-                android:text="25"
-                android:textColor="#000000"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/tvAddressLabel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Địa chỉ"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvAddress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/edittext_background"
-                android:padding="10dp"
-                android:text="123 Đường ABC, Phường XYZ, TP.HCM"
-                android:textColor="#000000"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/tvOccupationLabel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Nghề nghiệp"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvOccupation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/edittext_background"
-                android:padding="10dp"
-                android:text="Kỹ sư phần mềm"
-                android:textColor="#000000"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/tvPasswordLabel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Mật khẩu"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/edittext_background"
-                android:padding="10dp"
-                android:text="********"
-                android:textColor="#000000"
-                android:textSize="16sp" />
+                android:enabled="false" />
 
             <Button
                 android:id="@+id/btnEditProfile"
@@ -165,9 +86,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:backgroundTint="#0F39D1"
-                android:text="Chỉnh sửa thông tin"
+                android:text="Cập nhật thông tin cá nhân"
                 android:textColor="#FFFFFF" />
 
+            <!-- Nút đăng xuất -->
             <Button
                 android:id="@+id/btnLogout"
                 android:layout_width="match_parent"

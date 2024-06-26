@@ -1,13 +1,16 @@
 package com.example.smartwall.model;
 
 public class Goal {
+    private String id;
+    private String goalName;
+    private String goalAmount;
+    private String startDate;
+    private String endDate;
+    private String notes;
 
-    public String id;
-    public String goalName;
-    public String goalAmount;
-    public String startDate;
-    public String endDate;
-    public String notes;
+    public Goal() {
+        // Default constructor required for Firebase
+    }
 
     public Goal(String id, String goalName, String goalAmount, String startDate, String endDate, String notes) {
         this.id = id;
@@ -18,6 +21,7 @@ public class Goal {
         this.notes = notes;
     }
 
+    // Getter and Setter methods
     public String getId() {
         return id;
     }

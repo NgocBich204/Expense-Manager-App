@@ -14,24 +14,30 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.smartwall.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Register extends AppCompatActivity {
 
-    private EditText edtEmail, edtPass, edtConfirmPass, edtFullName;
+    private EditText edtFullName, edtEmail, edtPass, edtConfirmPass;
     private Button btnRegister;
     private ProgressBar progressBar;
     private FirebaseAuth fbAuth;
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
 
-        fbAuth = FirebaseAuth.getInstance();
+        fbAuth = FirebaseAuth.getInstance(); // Khởi tạo Firebase Auth
+        databaseReference = FirebaseDatabase.getInstance().getReference("users"); // Tham chiếu tới "users" trong Firebase Database
 
         // Ánh xạ các view từ layout
         edtFullName = findViewById(R.id.edtFullName);
@@ -92,10 +98,18 @@ public class Register extends AppCompatActivity {
                                 progressBar.setVisibility(View.GONE); // Ẩn ProgressBar khi xử lý xong
 
                                 if (task.isSuccessful()) {
+                                    // Đăng ký thành công, lưu thông tin người dùng vào Firebase Realtime Database
+                                    FirebaseUser user = fbAuth.getCurrentUser();
+                                    if (user != null) {
+                                        String userId = user.getUid();
+                                        User newUser = new User(fullName, email);
+                                        databaseReference.child(userId).setValue(newUser);
+                                    }
                                     Toast.makeText(Register.this, "Đăng ký thành công!", Toast.LENGTH_SHORT).show();
                                     startActivity(new Intent(Register.this, Login.class));
                                     finish();
                                 } else {
+                                    // Đăng ký không thành công, thông báo lỗi
                                     Toast.makeText(Register.this, "Đăng ký không thành công. Vui lòng thử lại!", Toast.LENGTH_SHORT).show();
                                 }
                             }
